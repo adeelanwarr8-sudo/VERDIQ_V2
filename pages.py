@@ -20,9 +20,9 @@ SAMPLE_ROWS = [
 
 def _status_chips(file_name: str) -> str:
     return (f'<div class="v-chips">'
-            f'<div class="v-chip">{check_badge(30)}<div><b>DXF imported</b><span>{escape(file_name)}</span></div></div>'
-            f'<div class="v-chip">{icon("layers", 26, "#178a45", 1.8)}<b>6 layers mapped</b></div>'
-            f'<div class="v-chip">{icon("tree", 26, "#178a45", 1.8)}<b>44 trees detected</b></div></div>')
+            f'<div class="v-chip">{check_badge(26)}<div><b>DXF example</b><span>{escape(file_name)}</span></div></div>'
+            f'<div class="v-chip">{icon("layers", 26, "#178a45", 1.8)}<b>6 sample layers</b></div>'
+            f'<div class="v-chip">{icon("tree", 26, "#178a45", 1.8)}<b>44 sample trees</b></div></div>')
 
 
 QUANTITIES = [("Planting bed ≥800 mm", "3,678.1", "m²", "0.9"),
@@ -73,7 +73,7 @@ def render_project_setup(project: Project) -> None:
     with up:
         st.file_uploader("Upload DXF", type=["dxf"], key="dxf_upload", label_visibility="collapsed")
     if uploaded is not None:
-        st.caption("Prototype: the selected file is not processed yet — the plan below is a sample drawing.")
+        st.caption("UI prototype: uploaded files are not processed; the drawing and quantities below remain examples.")
 
     tab_plan, tab_mapping, tab_validation = st.tabs(
         [":material/map: Plan view", ":material/stacks: Layer mapping", ":material/check_circle: Drawing validation"])
@@ -92,8 +92,8 @@ def render_project_setup(project: Project) -> None:
                     if st.button("Edit quantities", icon=":material/edit:", key="edit_quantities", use_container_width=True):
                         st.toast("Quantity editing will be connected in a later phase.")
                 st.markdown(_quantity_table(), unsafe_allow_html=True)
-                st.markdown(f'<div class="v-ok">{check_badge(32)}<div><b>No drawing problems found</b>'
-                            '<span>6 layers mapped · 44 trees and other elements detected</span></div></div>',
+                st.markdown(f'<div class="v-ok">{check_badge(32)}<div><b>Validation not run</b>'
+                            '<span>Example quantities only · no DXF processed</span></div></div>',
                             unsafe_allow_html=True)
                 continue_button("Confirm quantities and proceed to GYF assessment", "assessment", "confirm_quantities")
     with tab_mapping:

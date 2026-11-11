@@ -5,7 +5,7 @@ import streamlit as st
 
 st.set_page_config(page_title="Verdiq Studio", page_icon="🌿", layout="wide", initial_sidebar_state="collapsed")
 
-from layout import apply_styles, render_footer, render_header, render_navigation, render_sidebar  # noqa: E402
+from layout import apply_styles, render_header, render_navigation, render_sidebar  # noqa: E402
 from pages import (render_compare_designs, render_design_improvements, render_gyf_assessment,  # noqa: E402
                    render_plan_quantities, render_project_setup, render_reports_export)
 
@@ -32,7 +32,6 @@ def main() -> None:
     with right:
         with st.container(border=True, key="main_panel"):
             PAGE_RENDERERS.get(st.session_state.page, render_project_setup)(project)
-    render_footer()
 
 
 if __name__ == "__main__":

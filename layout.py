@@ -107,12 +107,3 @@ def render_sidebar() -> Project:
     return Project(name, kind, address, muni, version, selected[2], selected[3], override, target, area)
 
 
-def render_footer() -> None:
-    current = [p[0] for p in PAGES].index(st.session_state.page)
-    steps = []
-    for i, (_, label, _) in enumerate(PAGES):
-        cls = "on" if i == current else ("done" if i < current else "")
-        steps.append(f'<div class="v-step {cls}"><span class="n">{i + 1}</span><span class="l">{escape(label)}</span></div>')
-    line = '<span class="v-step-line"></span>'
-    st.markdown(f'<div class="v-footer"><div class="v-footer-title">Workflow Progress {icon("info", 18, "#4b5a52", 1.8)}</div>'
-                f'<div class="v-steps">{line.join(steps)}</div></div>', unsafe_allow_html=True)
