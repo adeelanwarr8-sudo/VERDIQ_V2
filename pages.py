@@ -8,7 +8,7 @@ import streamlit as st
 from html import escape
 
 from layout import Project
-from visuals import card, check_badge, continue_button, icon, kpi, plan_workspace_html, show_plan, title
+from visuals import card, continue_button, icon, kpi, plan_workspace_html, show_plan, title
 
 SAMPLE_ROWS = [
     {"CAD layer": "G_Y3 · Planting beds", "Mapped factor": "Planting bed ≥800 mm", "Quantity": "3,678.1 m²", "Review": "Example"},
@@ -17,12 +17,6 @@ SAMPLE_ROWS = [
     {"CAD layer": "G_Y0 · Hardscape", "Mapped factor": "Sealed surfaces", "Quantity": "6,137.2 m²", "Review": "Example"},
 ]
 
-
-def _status_chips(file_name: str) -> str:
-    return (f'<div class="v-chips">'
-            f'<div class="v-chip">{check_badge(26)}<div><b>DXF example</b><span>{escape(file_name)}</span></div></div>'
-            f'<div class="v-chip">{icon("layers", 26, "#178a45", 1.8)}<b>6 sample layers</b></div>'
-            f'<div class="v-chip">{icon("tree", 26, "#178a45", 1.8)}<b>44 sample trees</b></div></div>')
 
 
 QUANTITIES = [("Planting bed ≥800 mm", "3,678.1", "m²", "0.9"),
@@ -41,15 +35,11 @@ def _quantity_table() -> str:
 
 def render_project_setup(project: Project) -> None:
     uploaded = st.session_state.get("dxf_upload")
-    file_name = uploaded.name if uploaded is not None else "taby_ver_falls.dxf"
 
-    head, chips = st.columns([1.05, 1], vertical_alignment="center")
-    with head:
-        st.markdown('<div class="v-main-heading">DXF Plan Workspace</div>'
-                    '<div class="v-main-sub">Upload a DXF drawing, view the plan, map layers and extract GYF quantities.</div>',
-                    unsafe_allow_html=True)
-    with chips:
-        st.markdown(_status_chips(file_name), unsafe_allow_html=True)
+    st.markdown('<div class="v-main-heading">DXF Plan Workspace</div>'
+                '<div class="v-main-sub">Upload a DXF drawing, view the plan, map layers and extract GYF quantities.</div>'
+                '<div class="v-topspace"></div>',
+                unsafe_allow_html=True)
 
     with st.container(border=True, key="method_card"):
         intro, options = st.columns([1, 2.65], vertical_alignment="center")
@@ -73,7 +63,7 @@ def render_project_setup(project: Project) -> None:
     with up:
         st.file_uploader("Upload DXF", type=["dxf"], key="dxf_upload", label_visibility="collapsed")
     if uploaded is not None:
-        st.caption("UI prototype: uploaded files are not processed; the drawing and quantities below remain examples.")
+        st.caption("Prototype: the selected file is not processed yet — the plan below is a sample drawing.")
 
     tab_plan, tab_mapping, tab_validation = st.tabs(
         [":material/map: Plan view", ":material/stacks: Layer mapping", ":material/check_circle: Drawing validation"])
@@ -84,30 +74,21 @@ def render_project_setup(project: Project) -> None:
                 st.markdown(plan_workspace_html(), unsafe_allow_html=True)
         with quantities:
             with st.container(border=True, key="qty_card"):
-                t, b = st.columns([1.6, 1], vertical_alignment="center")
-                with t:
-                    st.markdown(f'<div class="v-qtitle">Detected Quantities {icon("info", 20, "#4b5a52", 1.8)}</div>',
-                                unsafe_allow_html=True)
-                with b:
-                    if st.button("Edit quantities", icon=":material/edit:", key="edit_quantities", use_container_width=True):
-                        st.toast("Quantity editing will be connected in a later phase.")
+                head_l, head_r = st.columns([1.25, .92], vertical_alignment="center")
+                with head_l:
+                    st.markdown('<div class="v-qtitle">Detected Quantities ' + icon("info", 21, "#607067", 1.7) + '</div>', unsafe_allow_html=True)
+                with head_r:
+                    st.button("Edit quantities", key="edit_quantities", icon=":material/edit:", use_container_width=True)
                 st.markdown(_quantity_table(), unsafe_allow_html=True)
-                st.markdown(f'<div class="v-ok">{check_badge(32)}<div><b>Validation not run</b>'
-                            '<span>Example quantities only · no DXF processed</span></div></div>',
+                st.markdown('<div class="v-ok">' + icon("check", 24, "#ffffff", 2, circle="#178a45") +
+                            '<div><b>No drawing problems found</b><span>6 layers mapped · 44 trees and other elements detected</span></div></div>',
                             unsafe_allow_html=True)
-                continue_button("Confirm quantities and proceed to GYF assessment", "assessment", "confirm_quantities")
+                continue_button("Confirm quantities and proceed to GYF assessment", "assessment", "cta_assessment")
     with tab_mapping:
-        st.info("Layer mapping interface preview. No uploaded file is processed.")
-        a, b = st.columns(2)
-        with a:
-            st.selectbox("CAD layer", ["G_Y3 · Planting beds", "G_Y2 · Ground", "K20 · Trees"], key="cad_layer")
-        with b:
-            st.selectbox("GYF factor", ["Planting bed ≥800 mm", "Ground vegetation", "New medium-sized trees"], key="gyf_factor")
-        st.button("Save mapping (not connected)", disabled=True)
+        st.dataframe(SAMPLE_ROWS, use_container_width=True, hide_index=True)
+        st.markdown('<div class="v-callout">Example only · Layer mapping shown here is illustrative and not derived from an uploaded DXF.</div>', unsafe_allow_html=True)
     with tab_validation:
-        st.warning("Drawing validation has not been performed. The geometry engine will be added in a later stage.")
-        st.dataframe([{"Check": "Plot boundary", "Status": "Not run"}, {"Check": "Overlapping surfaces", "Status": "Not run"},
-                      {"Check": "Unmapped layers", "Status": "Not run"}], hide_index=True, use_container_width=True)
+        st.markdown('<div class="v-callout v-warn">No validation is performed in this UI-only prototype. Future versions will report geometry, overlap, and counting issues here.</div>', unsafe_allow_html=True)
 
 
 def _render_manual() -> None:

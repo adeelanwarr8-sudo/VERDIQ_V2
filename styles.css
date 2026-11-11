@@ -16,7 +16,7 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 
 /* ---------- header ---------- */
 .v-header{display:flex;justify-content:space-between;align-items:center;background:#0b5130;
-  margin:0 0 .45rem;padding:9px 22px;min-height:68px;color:#fff}
+  margin:-.75rem calc(50% - 50vw) .2rem;padding:10px calc(50vw - 50% + 12px);min-height:76px;color:#fff}
 .v-brand{display:flex;align-items:center;gap:20px}
 .v-logo{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:8px;background:#1aa33d}
 .v-title{font-size:29px;font-weight:700;letter-spacing:-.4px;line-height:1.05}
@@ -24,9 +24,9 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 .v-top-icons{display:flex;gap:30px;padding-right:10px}
 
 /* ---------- navigation tabs ---------- */
-.st-key-nav{margin-bottom:.1rem}
-.st-key-nav [data-testid="stHorizontalBlock"]{gap:10px}
-[class*="st-key-nav_"] button{min-height:53px!important;border-radius:6px!important;background:#fff!important;
+.st-key-nav{margin-top:.18rem;margin-bottom:.45rem}
+.st-key-nav [data-testid="stHorizontalBlock"]{gap:14px}
+[class*="st-key-nav_"] button{min-height:56px!important;border-radius:8px!important;background:#fff!important;
   border:1px solid var(--line)!important;color:var(--ink)!important;box-shadow:none!important}
 [class*="st-key-nav_"] button p{font-size:16.5px!important;font-weight:700!important;letter-spacing:-.2px}
 [class*="st-key-nav_"] button [data-testid="stIconMaterial"]{font-size:27px!important;color:#3a4741;margin-right:10px}
@@ -47,7 +47,7 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 [data-testid="stWidgetLabel"] p{font-size:15px!important;font-weight:700!important;color:var(--ink)!important;letter-spacing:-.2px}
 label[data-testid="stWidgetLabel"]{display:flex!important;justify-content:flex-start!important;align-items:center;gap:9px;width:auto!important;margin-bottom:3px;min-height:0}
 label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
-[data-testid="stTooltipIcon"] svg{width:17px;height:17px;color:#4e5b54!important}
+[data-testid="stTooltipIcon"]{display:none!important}
 [data-testid="stTextInputRootElement"],.react-aria-ComboBox>[role="group"],[data-testid="stNumberInputContainer"]{background:#fff!important;
   border:1px solid #cfd8d2!important;border-radius:5px!important;height:34px!important;min-height:34px!important;box-shadow:none!important}
 [data-testid="stTextInputRootElement"] input,.react-aria-ComboBox input,[data-testid="stNumberInputField"]{background:#fff!important;
@@ -68,8 +68,8 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
 /* ---------- main workspace header ---------- */
 .v-main-heading{font-size:25px;font-weight:700;letter-spacing:-.5px;line-height:1.15;margin-top:6px}
 .v-main-sub{font-size:14.5px;color:#2e3a33;margin-top:6px}
-.v-topspace{margin-top:14px}
-.v-chips{display:flex;gap:14px;justify-content:flex-end}
+.v-topspace{margin-top:10px}
+.v-chips{display:flex;gap:16px;justify-content:flex-end}
 .v-chip{display:flex;align-items:center;gap:12px;background:#ecf7ec;border-radius:6px;padding:10px 16px;min-height:52px}
 .v-chip b{font-size:15px;font-weight:700;letter-spacing:-.2px}
 .v-chip div{display:flex;flex-direction:column;line-height:1.25}
@@ -80,8 +80,8 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
 .v-method-title{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px}
 .v-method-sub{font-size:14.5px;color:#2e3a33;line-height:1.4}
 .st-key-method_card [data-testid="stRadio"]>label[data-testid="stWidgetLabel"]{display:none!important}
-.st-key-method_card [role="radiogroup"]{display:flex!important;flex-wrap:nowrap!important;gap:16px!important;width:100%}
-.st-key-method_card [role="radiogroup"]>div{flex:1 1 0;position:relative;min-height:76px;margin:0!important;padding:11px 16px 11px 16px;
+.st-key-method_card [role="radiogroup"]{display:flex!important;flex-wrap:nowrap!important;gap:20px!important;width:100%}
+.st-key-method_card [role="radiogroup"]>div{flex:1 1 0;position:relative;min-height:82px;margin:0!important;padding:12px 18px;
   border:1px solid #d4ddd7;border-radius:6px;background:#fff;display:flex;flex-direction:column;justify-content:center}
 .st-key-method_card [role="radiogroup"]>div[data-selected="true"]{background:#eaf7ea;border:1.5px solid #2e9a57}
 .st-key-method_card [data-testid="stRadioOption"]{margin:0!important;padding:0!important;cursor:pointer}
@@ -170,6 +170,20 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
 [class*="st-key-cta_"] button::after{content:'';position:absolute;right:20px;top:50%;width:26px;height:26px;transform:translateY(-50%);
   background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14'/%3E%3Cpath d='m12 5 7 7-7 7'/%3E%3C/svg%3E")}
 
+/* ---------- workflow footer ---------- */
+.v-footer{display:flex;align-items:center;gap:40px;margin:.15rem calc(50% - 50vw) 0;padding:12px calc(50vw - 50% + 12px);
+  border-top:1px solid var(--line);background:#fff}
+.v-footer-title{font-size:16.5px;font-weight:700;display:flex;align-items:center;gap:10px;white-space:nowrap}
+.v-steps{display:flex;align-items:center;flex:1;gap:12px}
+.v-step{display:flex;align-items:center;gap:12px;white-space:nowrap;padding:3px 18px 3px 3px;border-radius:30px}
+.v-step .n{width:34px;height:34px;border-radius:50%;border:1.5px solid #3b4842;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:600}
+.v-step .l{font-size:16px;font-weight:500}
+.v-step.on{background:#e8f6e5;border:1.5px solid #2e9a57}
+.v-step.on .n{background:#0f7a43;border-color:#0f7a43;color:#fff}
+.v-step.on .l{font-weight:700}
+.v-step.done .n{border-color:#0f7a43;color:#0f7a43}
+.v-step-line{flex:1;height:1.5px;background:#9aa69f;min-width:20px}
+
 /* ---------- secondary pages ---------- */
 .v-callout{background:#edf8f0;border:1px solid #d0e9d6;padding:12px 14px;border-radius:6px;font-size:14px;color:#2b5c41}
 .v-warn{background:#fff7e6;border-color:#f0dcb8;color:#805c25}
@@ -182,157 +196,6 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
 [data-testid="stDataFrame"]{border:1px solid var(--line);border-radius:6px}
 
 @media (max-width:1250px){
-  .v-chips{flex-wrap:wrap}
+  .v-chips{flex-wrap:wrap}.v-steps .l{display:none}.v-footer{gap:16px}
   [class*="st-key-nav_"] button p{font-size:14px!important}
-}
-
-
-/* =============================================================
-   VERDIQ V2 / layout optimization 2026-11-11
-   Header and navigation form two separate normal-flow rows.
-   No negative margin, translated navigation, or duplicate footer.
-   ============================================================= */
-/* Establish predictable document flow. */
-.block-container{
-  padding:0 1.1rem 1.1rem!important;
-  max-width:none!important;
-}
-[data-testid="stMainBlockContainer"]{padding-top:0!important}
-.v-header{
-  margin:0 0 0.45rem!important;
-  padding:9px 22px!important;
-  min-height:68px!important;
-  box-sizing:border-box!important;
-  border-radius:0 0 4px 4px;
-  position:relative;
-  z-index:1;
-}
-.v-logo{width:46px;height:46px}
-.v-logo svg{width:29px;height:29px}
-.v-brand{gap:14px}
-.v-title{font-size:26px}
-.v-tagline{font-size:13.5px;margin-top:3px}
-.v-top-icons{gap:20px}
-.v-top-icons svg{width:26px;height:26px}
-
-/* Navigation is in the normal layout flow underneath the header. */
-.st-key-nav{
-  position:relative!important;
-  z-index:0!important;
-  margin:0 0 0.5rem!important;
-  padding:0!important;
-  transform:none!important;
-  clear:both!important;
-}
-.st-key-nav [data-testid="stHorizontalBlock"]{gap:9px!important}
-[class*="st-key-nav_"] button{
-  min-height:47px!important;
-  height:47px!important;
-  padding:5px 8px!important;
-  margin:0!important;
-  display:flex!important;
-  align-items:center!important;
-  justify-content:center!important;
-}
-[class*="st-key-nav_"] button p{font-size:14px!important;font-weight:700!important;white-space:nowrap}
-[class*="st-key-nav_"] button [data-testid="stIconMaterial"]{font-size:22px!important;margin-right:7px!important}
-
-/* Project parameters: compact, with clearly separated source and target. */
-.st-key-side_panel,.st-key-main_panel{border-radius:8px!important}
-.st-key-side_panel{padding:5px 6px!important}
-.st-key-main_panel{padding:4px 5px!important}
-.st-key-side_panel [data-testid="stVerticalBlock"]{gap:.22rem!important}
-.v-panel-title{font-size:21px}
-.v-panel-sub{font-size:12px;white-space:normal;line-height:1.3;margin:2px 0 3px}
-.st-key-side_panel [data-testid="stWidgetLabel"] p{font-size:13px!important}
-.st-key-side_panel label[data-testid="stWidgetLabel"]{margin-bottom:1px!important}
-.st-key-side_panel [data-testid="stTextInputRootElement"],
-.st-key-side_panel [data-testid="stNumberInputContainer"],
-.st-key-side_panel .react-aria-ComboBox>[role="group"]{height:32px!important;min-height:32px!important}
-.st-key-side_panel [data-testid="stTextInputRootElement"] input,
-.st-key-side_panel [data-testid="stNumberInputField"],
-.st-key-side_panel .react-aria-ComboBox input{font-size:14px!important;height:30px!important}
-.v-source{padding:9px 11px;margin:8px 0 9px!important}
-.v-source-head{font-size:14px;gap:8px}
-.v-source-body{font-size:12.5px;line-height:1.37;padding-left:28px}
-.v-hint{margin:-1px 0 2px 27px!important;font-size:11.5px;line-height:1.2}
-.st-key-side_panel [data-testid="stCheckbox"]{margin-top:3px!important}
-.st-key-side_panel [data-testid="stCheckbox"] p{font-size:13px!important}
-
-/* Keep workspace title and summary chips aligned without taking a full extra row. */
-.v-main-heading{font-size:22px;margin-top:2px}
-.v-main-sub{font-size:12.8px;margin-top:3px;line-height:1.35}
-.v-chips{gap:7px;flex-wrap:wrap}
-.v-chip{gap:8px;min-height:42px;padding:6px 10px}
-.v-chip svg{width:23px;height:23px}
-.v-chip b{font-size:12.5px}
-.v-chip span{font-size:11px}
-
-/* Assessment method controls are informative, not tall promotional cards. */
-.st-key-method_card{padding:1px 5px!important}
-.v-method-title{font-size:17px;margin-bottom:3px}
-.v-method-sub{font-size:12.5px;line-height:1.3}
-.st-key-method_card [role="radiogroup"]{gap:9px!important}
-.st-key-method_card [role="radiogroup"]>div{
-  min-height:64px!important;
-  padding:7px 11px!important;
-}
-.st-key-method_card [data-testid="stRadioOption"] p{font-size:13.5px!important;padding-left:39px}
-.st-key-method_card [data-testid="stRadioOption"] p>span[role="img"]{font-size:25px!important}
-.st-key-method_card [data-testid="stRadioOption"]>div>div:first-child{margin:9px 12px 0 3px;transform:scale(1.1)}
-.st-key-method_card [data-testid="stRadioCaption"]{margin:1px 0 0 75px!important}
-.st-key-method_card [data-testid="stRadioCaption"] p{font-size:11.8px!important;line-height:1.25!important}
-
-/* File input, tabs, plan and quantities. */
-[data-testid="stFileUploaderDropzone"]{min-height:46px!important;padding:3px 10px!important}
-[data-testid="stFileUploaderDropzone"]::before{width:29px;height:29px;margin:0 12px}
-[data-testid="stFileUploaderDropzoneInstructions"]::after{font-size:13px}
-[data-testid="stFileUploaderDropzone"] button{height:35px!important;min-width:128px!important}
-[data-testid="stFileUploaderDropzone"] button p::after{font-size:13.5px}
-[data-testid="stFileUploaderDropzone"]::after{font-size:11px;margin-left:12px}
-[data-testid="stTab"]{height:37px!important;padding:0 15px!important}
-[data-testid="stTab"] p{font-size:13px!important}
-[data-testid="stTab"] p>span[role="img"]{font-size:19px!important}
-.v-toolbar{gap:5px;padding:1px 0 4px}
-.v-toolbar .tb{width:34px;height:34px}
-.v-toolbar .tb svg{width:17px;height:17px}
-.tb-layers{height:34px;gap:6px}
-.tb-layers b{font-size:13px}
-.v-layers-panel{width:166px;padding:8px 10px}
-.lp-row{font-size:11px;gap:7px}
-.v-legend{font-size:11px;gap:4px 12px;padding:5px 2px 2px}
-.v-legend i{width:17px;height:10px}
-.v-qtitle{font-size:19px}
-.st-key-edit_quantities button{min-height:33px!important}
-.st-key-edit_quantities button p{font-size:13px!important}
-.v-qtable{font-size:12.5px}
-.v-qtable th{font-size:12px;padding:5px 7px}
-.v-qtable td{padding:5px 7px}
-.v-ok{padding:8px 10px;margin-top:6px;gap:9px}
-.v-ok svg{width:26px;height:26px}
-.v-ok b{font-size:13px}
-.v-ok span{font-size:11.5px}
-[class*="st-key-cta_"] button{min-height:42px!important}
-[class*="st-key-cta_"] button p{font-size:13.5px!important}
-[class*="st-key-cta_"] button::after{width:20px;height:20px;right:12px}
-
-/* Adapt details at smaller desktop viewports without requiring browser zoom. */
-@media (max-width:1450px){
-  .block-container{padding:0 .7rem .7rem!important}
-  [class*="st-key-nav_"] button p{font-size:12px!important}
-  [class*="st-key-nav_"] button [data-testid="stIconMaterial"]{font-size:19px!important;margin-right:4px!important}
-  .v-chips{gap:4px}.v-chip{padding:5px 7px}
-  .v-chip b{font-size:11.5px}
-  .v-method-sub{font-size:11.5px}
-  .st-key-method_card [data-testid="stRadioCaption"] p{font-size:11px!important}
-  .v-layers-panel{width:148px}
-}
-@media (max-width:1000px){
-  .v-header{padding:9px 12px!important}
-  .v-title{font-size:21px}.v-tagline{font-size:11px}
-  [class*="st-key-nav_"] button p{font-size:10px!important;white-space:normal}
-  [class*="st-key-nav_"] button [data-testid="stIconMaterial"]{display:none!important}
-  .v-chips{justify-content:flex-start}
-  .st-key-method_card [role="radiogroup"]{flex-wrap:wrap!important}
-  .st-key-method_card [role="radiogroup"]>div{flex:1 1 230px}
 }

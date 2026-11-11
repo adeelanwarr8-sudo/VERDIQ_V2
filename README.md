@@ -1,26 +1,31 @@
-# VERDIQ_V2 — Compact UI optimization
+# VERDIQ_V2 — Reference-Matched UI Prototype
 
-Independent Streamlit UI-only prototype. No connections to the previous VERDIQ repository.
+UI-only standalone Streamlit prototype built to match the approved `UI_SAMPLE.jpg`.
 
-## Install
+## Repository layout
+Put these files **directly in the repository root**:
 
-Upload the **contents** of this folder to the root of your `VERDIQ_V2` GitHub repository. Preserve the `.streamlit/config.toml` folder path. Replace the current files and commit to `main`. On Streamlit Community Cloud, reboot if the theme config has changed.
+```
+streamlit_app.py
+layout.py
+pages.py
+visuals.py
+styles.css
+requirements.txt
+README.md
+.streamlit/config.toml     <- inside a folder named .streamlit
+```
 
-Entry point: `streamlit_app.py`. Dependencies: `requirements.txt` (Streamlit 1.67.0).
+`.streamlit/config.toml` sets the green theme and the 50 MB DXF upload limit shown in the UI.
 
-## UI refinements
+## Deploy
+1. Upload/replace the files above (keep `config.toml` inside `.streamlit/`).
+2. Deploy `streamlit_app.py` on Streamlit Community Cloud.
+3. Reboot the app after the commit so the new config is picked up.
 
-- Header and six-button navigation occupy distinct normal-flow rows; no negative top margin overlap.
-- Duplicate bottom workflow progress strip removed.
-- Compact Project Setup panel and separated Model/Source and target controls.
-- More compact heading, method selection, upload drop-zone, plan toolbar, tab strip, quantity summary, and primary action.
-- CSS includes desktop breakpoint adjustments for approximately 1366px and 1920px wide viewports.
-- Placeholder status is labeled as an example rather than claiming uploaded DXF processing or verified geometry.
+## Notes
+- Streamlit is pinned to `1.67.0`: the styling targets that version's widget markup. Upgrading may need small CSS adjustments.
+- Designed for a desktop browser around 1600 px wide; narrower screens wrap gracefully.
 
-## Scope
-
-This remains a **UI prototype**. Uploaded DXF files are not parsed. Charts, plans and quantities are example content. The toolbar illustrations are not functioning GIS tools. Do not interpret the example data as a calculation or compliance determination.
-
-## Validation performed
-
-Python source compiles and static checks confirm the flat root imports and all six pages are retained. Live Streamlit/browser rendering was **not** available in this execution environment; visual verification is required after deployment at 100% browser zoom.
+## Limitations
+**This is a visual prototype only.** DXF upload does not render the drawing, the plan, quantities, layer mapping, validation, recommendations and exports are sample content and not computed. No imports or dependencies on VERDIQ V1.
