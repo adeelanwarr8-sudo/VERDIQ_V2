@@ -96,7 +96,7 @@ def _render_manual() -> None:
     st.markdown('<div class="v-main-heading v-topspace">Manual GYF Calculation</div><div class="v-main-sub">Enter quantities '
                 'directly without a DXF drawing. This is a visual prototype; calculations are not connected.</div>',
                 unsafe_allow_html=True)
-    c1, c2 = st.columns([1.5, 1], gap="medium")
+    c1, c2 = st.columns([1.85, 1], gap="large")
     with c1:
         with st.container(border=True):
             grp = st.selectbox("Factor category", ["Ground and planting", "Trees and vegetation", "Water and stormwater",
