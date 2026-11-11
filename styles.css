@@ -16,7 +16,7 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 
 /* ---------- header ---------- */
 .v-header{display:flex;justify-content:space-between;align-items:center;background:#0b5130;
-  margin:-.75rem calc(50% - 50vw) .2rem;padding:10px calc(50vw - 50% + 12px);min-height:76px;color:#fff}
+  margin:-.75rem calc(50% - 50vw) 5px;padding:10px calc(50vw - 50% + 12px);min-height:76px;color:#fff}
 .v-brand{display:flex;align-items:center;gap:20px}
 .v-logo{display:flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:8px;background:#1aa33d}
 .v-title{font-size:29px;font-weight:700;letter-spacing:-.4px;line-height:1.05}
@@ -24,7 +24,7 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 .v-top-icons{display:flex;gap:30px;padding-right:10px}
 
 /* ---------- navigation tabs ---------- */
-.st-key-nav{margin-top:.18rem;margin-bottom:.45rem}
+.st-key-nav{margin-top:3px;margin-bottom:.45rem}
 .st-key-nav [data-testid="stHorizontalBlock"]{gap:14px}
 [class*="st-key-nav_"] button{min-height:56px!important;border-radius:8px!important;background:#fff!important;
   border:1px solid var(--line)!important;color:var(--ink)!important;box-shadow:none!important}

@@ -54,8 +54,7 @@ def apply_styles() -> None:
 def render_header() -> None:
     st.markdown(
         f'<div class="v-header"><div class="v-brand"><span class="v-logo">{icon("sprout", 34, "#ffffff", 2)}</span>'
-        f'<div><div class="v-title">Verdiq Studio</div><div class="v-tagline">Green Infrastructure Design &amp; GYF Assessment</div></div></div>'
-        f'<div class="v-top-icons">{icon("help", 34, "#ffffff", 1.6)}{icon("user", 34, "#ffffff", 1.6)}</div></div>',
+        f'<div><div class="v-title">Verdiq Studio</div><div class="v-tagline">Green Infrastructure Design &amp; GYF Assessment</div></div></div></div>',
         unsafe_allow_html=True)
 
 
