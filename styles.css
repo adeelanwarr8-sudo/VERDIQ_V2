@@ -1,0 +1,32 @@
+:root{--v-green:#18583e;--v-green2:#2b8056;--v-ink:#1c2a23;--v-muted:#65756a;--v-line:#dce8df;--v-bg:#f7faf7;--v-light:#eef7f0}
+.stApp{background:var(--v-bg);color:var(--v-ink)}
+.block-container{max-width:none!important;padding:1.15rem 2.2rem 2.5rem!important}
+section[data-testid="stSidebar"]{background:#f0f5f0;border-right:1px solid #dbe6db;min-width:300px!important;max-width:350px!important}
+section[data-testid="stSidebar"]>div{padding-top:1.25rem}
+.v-header{padding:16px 24px;background:linear-gradient(110deg,#174d39,#20724b);border-radius:13px;display:flex;justify-content:space-between;align-items:center;color:#fff;margin-bottom:14px;box-shadow:0 3px 15px #0a3c2415}
+.v-brand{display:flex;align-items:center;gap:14px}.v-leaf{font-size:42px;line-height:1;color:#cfebd2}
+.v-title{font-size:27px;letter-spacing:-.55px;font-weight:750;line-height:1.2}.v-version{font-size:11px;padding:3px 7px;background:#ffffff22;border:1px solid #ffffff40;border-radius:6px;vertical-align:middle}.v-tagline{font-size:12px;color:#e1f4e6;margin-top:4px}.v-header-right{font-size:12px;color:#deeee1}
+.v-nav-space{height:8px}.v-side-brand{font-weight:800;letter-spacing:1.5px;font-size:12px;color:#22583d;margin-bottom:15px}
+.v-source{background:#fff;border:1px solid #cfe1d3;border-left:4px solid #2b8056;border-radius:9px;padding:12px 13px;font-size:12px;color:#465b4d;line-height:1.75;margin:12px 0}
+.v-source strong{font-size:13px;color:#1c3928}.v-source-head{font-weight:800;color:#2b8056;letter-spacing:1px;font-size:10px;margin-bottom:4px}.v-source-note{font-size:10px;color:#7e8d82;margin-top:6px}
+.v-sidebar-foot{font-size:11px;color:#718076}.v-eyebrow{font-size:11px;font-weight:800;letter-spacing:1.4px;color:#2b8056;text-transform:uppercase;margin-bottom:7px}
+.v-page-title{font-size:25px;font-weight:750;color:#1d3527;letter-spacing:-.6px;margin:0}.v-page-sub{font-size:13px;color:#6b7b70;margin:4px 0 18px}
+.v-card{background:#fff;border:1px solid var(--v-line);border-radius:12px;padding:18px;margin-bottom:12px;box-shadow:0 1px 4px #123b2110}
+.v-card-title{font-size:15px;font-weight:750;margin:0 0 8px;color:#203a29}.v-card-sub{font-size:12px;color:var(--v-muted);margin-bottom:10px}
+.v-pill{display:inline-block;padding:4px 9px;background:#e7f4ea;border-radius:50px;font-size:11px;font-weight:750;color:#237049;border:1px solid #cce7d3}
+.v-pill-amber{background:#fff5df;color:#966913;border-color:#efd6a6}.v-pill-red{background:#ffebea;color:#ab3933;border-color:#f4cfcb}
+.v-stat{background:white;border:1px solid var(--v-line);border-radius:12px;padding:18px;min-height:111px}
+.v-stat-label{color:#69766e;font-size:12px;margin-bottom:10px}.v-stat-value{font-size:29px;font-weight:800;line-height:1.1;color:#214c36}.v-stat-note{font-size:11px;color:#708175;margin-top:8px}.v-stat-value.red{color:#b3453f}
+.v-plan{border:1px solid #d7e3da;border-radius:12px;background:#f1f5f0;padding:9px;overflow:hidden}
+.v-plan svg{display:block;width:100%;height:auto;max-height:440px}
+.v-callout{padding:12px 15px;border-radius:9px;background:#eef7f0;border:1px solid #d1e6d6;font-size:12px;color:#476453}
+.v-warn{background:#fff7e7;border-color:#f2ddb5;color:#805b25}
+.v-preview{background:#f3f7f3;border:1px dashed #a9c5ae;border-radius:12px;padding:26px 16px;text-align:center;color:#52705e}
+.v-footer{font-size:11px;color:#849188;border-top:1px solid #dfe8e1;margin-top:28px;padding-top:15px;text-align:center;letter-spacing:.2px}
+.v-factor-grid{display:grid;grid-template-columns:1fr auto;gap:7px 10px;font-size:12px;align-items:center}.v-factor-grid>div{border-bottom:1px solid #eaf0eb;padding:7px 0}
+.v-compare-delta{font-size:26px;font-weight:850;color:#287b4d}
+.v-progress{background:#e8eee9;height:10px;border-radius:20px;overflow:hidden}.v-progress>span{display:block;height:100%;border-radius:20px;background:#2c8659}
+div[data-testid="stButton"] button{border-radius:9px;font-size:12px;font-weight:650;min-height:42px}
+div[data-testid="stButton"] button[kind="primary"]{background:#25794f;border-color:#25794f}
+div[data-testid="stMetric"]{background:#fff;border:1px solid #dce8df;border-radius:10px;padding:14px}
+@media(max-width:1050px){.block-container{padding:1rem!important}.v-header-right{display:none}.v-title{font-size:21px}}

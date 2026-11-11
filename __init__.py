@@ -1,0 +1,1 @@
+"""UI-only application package."""
