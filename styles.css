@@ -356,3 +356,22 @@ p>span[role="img"]{
 .st-key-side_panel{min-width:0!important;overflow-wrap:anywhere}
 .st-key-side_panel [data-testid="stVerticalBlock"],.st-key-side_panel [data-testid="stElementContainer"]{min-width:0;max-width:100%}
 .st-key-side_panel [data-testid="stTextInputRootElement"]{width:100%!important;min-width:0}
+
+
+/* ---------- Manual GYF information banners ---------- */
+
+.st-key-main_panel .v-callout,
+.st-key-main_panel [data-testid="stAlert"] {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 8px !important;
+    padding: 16px 18px !important;
+}
+
+/* Space between banners */
+.st-key-main_panel .v-callout {
+    margin-bottom: 12px !important;
+}
+
