@@ -54,7 +54,7 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
   font-size:15.5px!important;color:var(--ink)!important;padding:0 12px!important;height:32px!important}
 [data-testid="stNumberInputStepDown"],[data-testid="stNumberInputStepUp"]{background:#fff!important;color:var(--ink)!important;width:38px!important;height:32px!important}
 [data-testid="stNumberInputStepDown"] svg,[data-testid="stNumberInputStepUp"] svg{width:15px;height:15px}
-.v-source{background:#e8f6e6;border-radius:6px;padding:9px 14px 10px;margin:4px 0 2px;color:#1d2a22}
+.v-source{background:#e8f6e6;border-radius:6px;padding:9px 14px 10px;margin:4px 0 14px;color:#1d2a22}
 .v-source-head{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;margin-bottom:4px}
 .v-source-link{margin-left:auto}
 .v-source-body{font-size:13.5px;line-height:1.38;padding-left:32px}
