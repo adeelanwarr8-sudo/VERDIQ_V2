@@ -207,6 +207,45 @@ p>span[role="img"]{
     inset:0;
 }
 
+
+/* ---------- Manual GYF Calculation ---------- */
+
+/* Heading and introduction */
+.v-topspace{
+    margin-top:18px;
+}
+
+.v-main-heading{
+    margin-bottom:10px;
+}
+
+.v-main-sub{
+    margin-bottom:18px;
+    line-height:1.5;
+}
+
+/* Manual calculation form */
+.st-key-main_panel [data-testid="stNumberInput"]{
+    margin-bottom:8px;
+}
+
+/* Consistent form labels */
+.st-key-main_panel [data-testid="stWidgetLabel"]{
+    margin-bottom:5px;
+}
+
+/* Information and warning boxes */
+.st-key-main_panel [data-testid="stAlert"]{
+    margin-bottom:12px;
+    border-radius:8px;
+    padding:14px 16px;
+}
+
+/* Consistent panel spacing */
+.st-key-main_panel [data-testid="stHorizontalBlock"]{
+    column-gap:20px;
+}
+
 /* ---------- uploader ---------- */
 [data-testid="stFileUploader"]>label{display:none!important}
 [data-testid="stFileUploaderDropzone"]{border:1.5px dashed #63b07c!important;background:#f0f9f0!important;border-radius:6px!important;
