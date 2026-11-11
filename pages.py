@@ -8,7 +8,7 @@ import streamlit as st
 from html import escape
 
 from layout import Project
-from visuals import card, continue_button, icon, kpi, plan_workspace_html, show_plan, title
+from visuals import card, check_badge, continue_button, icon, kpi, plan_workspace_html, show_plan, title
 
 SAMPLE_ROWS = [
     {"CAD layer": "G_Y3 · Planting beds", "Mapped factor": "Planting bed ≥800 mm", "Quantity": "3,678.1 m²", "Review": "Example"},
@@ -80,8 +80,8 @@ def render_project_setup(project: Project) -> None:
                 with head_r:
                     st.button("Edit quantities", key="edit_quantities", icon=":material/edit:", use_container_width=True)
                 st.markdown(_quantity_table(), unsafe_allow_html=True)
-                st.markdown('<div class="v-ok">' + icon("check", 24, "#ffffff", 2, circle="#178a45") +
-                            '<div><b>No drawing problems found</b><span>6 layers mapped · 44 trees and other elements detected</span></div></div>',
+                st.markdown('<div class="v-ok">' + check_badge(24) +
+                            '<div><b>Sample drawing preview</b><span>Geometry validation is not connected yet.</span></div></div>',
                             unsafe_allow_html=True)
                 continue_button("Confirm quantities and proceed to GYF assessment", "assessment", "cta_assessment")
     with tab_mapping:
