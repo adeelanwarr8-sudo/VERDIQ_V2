@@ -19,59 +19,49 @@ SAMPLE_ROWS = [
 
 
 def render_project_setup(project: Project) -> None:
-    title("Project Setup & GYF Input", "Choose your assessment method. Your municipal and project settings are in the left sidebar.")
-    st.markdown('<div class="v-callout">Design-only preview: example plan, quantities, and status are not linked to uploaded files or municipal rules.</div>', unsafe_allow_html=True)
-    st.write("")
-    st.markdown("#### Assessment method")
-    method = st.radio("How would you like to provide GYF quantities?", ["DXF Plan Analysis", "Manual GYF Calculation"], horizontal=True, key="assessment_method")
-    if method == "DXF Plan Analysis":
-        a, b = st.columns([1.6, 1], gap="medium")
-        with a:
-            st.markdown("#### DXF Plan Workspace")
-            uploaded = st.file_uploader("Upload DXF drawing", type=["dxf"], key="preview_dxf", help="UI demonstration only. Uploaded files are not opened or parsed.")
-            if uploaded is not None:
-                st.info(f"Selected file: {uploaded.name}. DXF processing will be implemented in a future stage; the preview below is illustrative.")
-            else:
-                st.caption("Select a DXF file to preview the upload control. The drawing below is sample artwork.")
-            show_plan()
-            st.caption("Illustrative plan preview — the actual uploaded file is not displayed or processed in this phase.")
-            st.markdown("**Drawing tools**")
-            t1, t2, t3 = st.columns(3)
-            t1.checkbox("Show trees", value=True, key="ui_trees")
-            t2.checkbox("Show planting", value=True, key="ui_green")
-            t3.checkbox("Show boundaries", value=True, key="ui_boundaries")
-            st.caption("Drawing visibility tools are mock controls, not connected to geometry.")
-        with b:
-            st.markdown("#### Layer Mapping")
-            st.selectbox("Selected drawing layer", ["G_Y3 · Planting beds", "G_Y2 · Green ground", "K20 · Trees", "G_Y0 · Hardscape"], key="ui_layer")
-            st.selectbox("Map to GYF factor", ["Planting bed ≥800 mm", "Ground vegetation", "New medium trees", "Sealed surfaces"], key="ui_mapping")
-            st.button("Save mapping (coming later)", disabled=True, use_container_width=True)
-            st.markdown("#### Detected Quantities")
-            st.dataframe(SAMPLE_ROWS, hide_index=True, use_container_width=True)
-            st.markdown('<div class="v-callout">Example only · 4 mapped layer rows shown · Quantity extraction not connected.</div>', unsafe_allow_html=True)
-            st.markdown("#### Drawing Validation")
-            st.markdown('<div class="v-callout v-warn">Not run. Geometric validity, overlaps, and coverage require the DXF processing engine.</div>', unsafe_allow_html=True)
-        continue_button("Continue to Plan & Quantities →", "plan", "continue_setup_dxf")
-    else:
-        st.markdown("#### Manual GYF Quantity Entry")
-        st.caption("Sample categories and quantities for interface review. This does not represent a municipal rulebook.")
-        left, right = st.columns([1.6, 1], gap="medium")
-        with left:
+    st.markdown('<div class="v-main-heading">DXF Plan Workspace</div><div class="v-main-sub">Upload a DXF drawing, view the plan, map layers and extract GYF quantities.</div>', unsafe_allow_html=True)
+    st.markdown('<div class="v-method-title">Assessment Method</div><div class="v-main-sub">Choose how you want to provide quantities for your GYF assessment.</div>', unsafe_allow_html=True)
+    method=st.radio('Assessment method', ['DXF Plan Analysis','Manual GYF Calculation'],horizontal=True,key='assessment_method',label_visibility='collapsed')
+    if method=='Manual GYF Calculation':
+        st.markdown('<div class="v-main-heading v-topspace">Manual GYF Calculation</div><div class="v-main-sub">Enter quantities directly without a DXF drawing. This is a visual prototype; calculations are not connected.</div>',unsafe_allow_html=True)
+        c1,c2=st.columns([1.5,1],gap='medium')
+        with c1:
             with st.container(border=True):
-                category = st.selectbox("Factor category", ["Ground and planting surfaces", "Trees and vegetation", "Water and stormwater", "Supplementary ecosystem qualities"], key="manual_cat")
-                example = {
-                    "Ground and planting surfaces": [("Preserved natural ground", "m²"), ("Planting bed ≥800 mm", "m²"), ("Sealed surface", "m²")],
-                    "Trees and vegetation": [("Existing trees", "pcs"), ("New medium trees", "pcs"), ("Shrub planting", "m²")],
-                    "Water and stormwater": [("Water bodies", "m²"), ("Rain garden", "m²"), ("Permeable paving", "m²")],
-                    "Supplementary ecosystem qualities": [("Habitat enhancement", "m²"), ("Flower diversity", "m²"), ("Nest boxes", "pcs")],
-                }
-                for i, (name, unit) in enumerate(example[category]):
-                    st.number_input(f"{name} ({unit})", min_value=0.0, step=1.0, value=0.0, key=f"manual_{category}_{i}")
-                st.info("Values are UI inputs only. No calculation, balancing or persistence is implemented.")
-        with right:
-            card("Manual assessment", "<p style='font-size:13px;color:#65756a'>This route does not require CAD drawings. Later, the form will load the chosen municipality's official factor definitions and validate the entered quantities.</p>")
-            card("Geometry verification", "<span class='v-pill v-pill-amber'>Not available for manual input</span><p style='font-size:12px;color:#65756a;margin-top:10px'>Manual entries cannot automatically verify spatial overlap, site boundaries or planting eligibility.</p>")
-        continue_button("Continue to Plan & Quantities →", "plan", "continue_setup_manual")
+                grp=st.selectbox('Factor category',['Ground and planting','Trees and vegetation','Water and stormwater','Supplementary qualities'],key='manual_cat')
+                rows={'Ground and planting':['Preserved natural ground (m²)','Planting bed ≥800 mm (m²)','Sealed surfaces (m²)'],'Trees and vegetation':['Existing trees (pcs)','New medium trees (pcs)','Shrubs (m²)'],'Water and stormwater':['Water bodies (m²)','Rain gardens (m²)'],'Supplementary qualities':['Field diversity (m²)','Nest boxes (pcs)']}
+                for i,n in enumerate(rows[grp]):st.number_input(n,min_value=0.,step=1.,key=f'manu_{grp}_{i}')
+        with c2:
+            st.markdown('<div class="v-callout">Manual quantities will use the selected municipal rulebook when the calculation engine is connected.</div>',unsafe_allow_html=True)
+            st.warning('Spatial geometry validation is unavailable in manual-entry mode.')
+        continue_button('Continue to Plan & Quantities →','plan','manual_continue')
+        return
+    status=st.columns(3,gap='small')
+    for col,ic,txt in zip(status,['✓','▤','♧'],['DXF imported · example','6 layers mapped · example','44 trees detected · example']):
+        with col:st.markdown(f'<div class="v-status">{ic} &nbsp; {txt}</div>',unsafe_allow_html=True)
+    uploaded=st.file_uploader('Upload DXF',type=['dxf'],key='mock_dxf',help='Upload control demonstration: DXF content is not read or rendered in this UI-only phase.')
+    if uploaded is not None:st.caption(f'Selected: {escape(uploaded.name)} — file not processed. The drawing below remains a sample illustration.')
+    tab_plan,tab_mapping,tab_validation=st.tabs(['▣  Plan view','▤  Layer mapping','◉  Drawing validation'])
+    with tab_plan:
+        drawing,quantities=st.columns([1.32,1],gap='small')
+        with drawing:
+            st.markdown('<div class="v-tools">↖ &nbsp; ✋ &nbsp; ⊕ &nbsp; ⊖ &nbsp; ⛶ &nbsp; │ &nbsp; ✎ <span style="float:right">▤ &nbsp; Layers ▾</span></div>',unsafe_allow_html=True)
+            show_plan(height=480)
+            st.markdown('<div class="v-legend">🟩 Planted ground &nbsp;&nbsp; ▫️ Permeable paving &nbsp;&nbsp; ◼ Sealed &nbsp;&nbsp; ● Trees</div>',unsafe_allow_html=True)
+        with quantities:
+            st.markdown('<div class="v-qtitle">Detected Quantities <span style="float:right;color:#2f7851;font-size:12px">✎ Edit quantities (later)</span></div>',unsafe_allow_html=True)
+            st.dataframe([{'Factor':'Planting bed ≥800 mm','Quantity':'3,678.1','Unit':'m²','Weight':'0.9'}, {'Factor':'New medium-sized trees','Quantity':'44','Unit':'pcs','Weight':'1.5'}, {'Factor':'Sealed surfaces','Quantity':'6,137.2','Unit':'m²','Weight':'0.0'}, {'Factor':'Paved surfaces','Quantity':'5,081.7','Unit':'m²','Weight':'—'}, {'Factor':'Shrubs (general)','Quantity':'120.0','Unit':'m²','Weight':'0.2'}],hide_index=True,use_container_width=True)
+            st.markdown('<div class="v-status">✓ &nbsp; Example drawing: no problems shown</div>',unsafe_allow_html=True)
+            st.caption('Sample visualization only; no DXF geometry has been checked.')
+            continue_button('Confirm quantities and proceed to GYF assessment →','assessment','confirm_quantities_mock')
+    with tab_mapping:
+        st.info('Layer mapping interface preview. No uploaded file is processed.')
+        a,b=st.columns(2)
+        with a:st.selectbox('CAD layer',['G_Y3 · Planting beds','G_Y2 · Ground','K20 · Trees'],key='cad_layer')
+        with b:st.selectbox('GYF factor',['Planting bed ≥800 mm','Ground vegetation','New medium-sized trees'],key='gyf_factor')
+        st.button('Save mapping (not connected)',disabled=True)
+    with tab_validation:
+        st.warning('Drawing validation has not been performed. The geometry engine will be added in a later stage.')
+        st.dataframe([{'Check':'Plot boundary','Status':'Not run'},{'Check':'Overlapping surfaces','Status':'Not run'},{'Check':'Unmapped layers','Status':'Not run'}],hide_index=True,use_container_width=True)
 
 
 def render_plan_quantities(project: Project) -> None:

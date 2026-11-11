@@ -1,15 +1,20 @@
-# VERDIQ_V2 — standalone UI-only prototype (flat repository)
+# VERDIQ_V2 — Reference-Matched UI Prototype
 
-Upload **all seven files** in this folder directly to your GitHub repository root (the same level as `streamlit_app.py`). No `app/` or `assets/` directory is needed.
+UI-only standalone Streamlit prototype designed against the approved `UI_SAMPLE.jpg` image. All seven files belong **directly in the GitHub repository root**.
 
-- `streamlit_app.py` — Streamlit entrypoint
-- `layout.py` — header, navigation, project sidebar
-- `pages.py` — six prototype pages
-- `visuals.py` — plan illustrations and UI helpers
-- `styles.css` — UI styling
-- `requirements.txt` — Streamlit dependency
-- `README.md` — these instructions
+## Deploy
+1. Upload/replace all seven files in the root of `VERDIQ_V2` (not inside a folder).
+2. Deploy `streamlit_app.py` using Streamlit Community Cloud.
+3. Refresh the application after the commit.
 
-In Streamlit Community Cloud, deploy `streamlit_app.py` on the `main` branch. After pushing changes, reboot the app if the previous deployment remains cached.
+## Contents
+- `streamlit_app.py`: page shell and two-column composition
+- `layout.py`: full-width green header, six tabs, left project-setup panel
+- `pages.py`: six UI-only pages, including DXF/manual method selection
+- `visuals.py`: vector illustration of a sample site plan
+- `styles.css`: enlarged type, proportions, colours and visual components
+- `requirements.txt`: Streamlit dependency
+- `README.md`: instructions
 
-This UI prototype uses illustrative values and does not calculate GYF or parse DXF drawings. No connection to the prior VERDIQ repository is required.
+## Limitations
+**This is a visual prototype only.** DXF selection does not render the uploaded drawing, layer mapping does not save, example quantities are not computed, and checks, recommendations, and exports are not live. The reference image is an idealized design; some details will differ because Streamlit controls are native browser widgets. No imports or dependencies on VERDIQ V1.
