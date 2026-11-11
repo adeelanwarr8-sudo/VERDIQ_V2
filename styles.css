@@ -76,23 +76,136 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
 .v-chip span{font-size:13.5px;color:#25322b}
 
 /* ---------- assessment method card ---------- */
-.st-key-method_card{border-color:var(--line)!important;border-radius:8px!important;padding:2px 6px!important}
-.v-method-title{font-size:20px;font-weight:700;letter-spacing:-.3px;margin-bottom:6px}
-.v-method-sub{font-size:14.5px;color:#2e3a33;line-height:1.4}
-.st-key-method_card [data-testid="stRadio"]>label[data-testid="stWidgetLabel"]{display:none!important}
-.st-key-method_card [role="radiogroup"]{display:flex!important;flex-wrap:nowrap!important;gap:20px!important;width:100%}
-.st-key-method_card [role="radiogroup"]>div{flex:1 1 0;position:relative;min-height:82px;margin:0!important;padding:12px 18px;
-  border:1px solid #d4ddd7;border-radius:6px;background:#fff;display:flex;flex-direction:column;justify-content:center}
-.st-key-method_card [role="radiogroup"]>div[data-selected="true"]{background:#eaf7ea;border:1.5px solid #2e9a57}
-.st-key-method_card [data-testid="stRadioOption"]{margin:0!important;padding:0!important;cursor:pointer}
-.st-key-method_card [data-testid="stRadioOption"]>div{align-items:flex-start}
-.st-key-method_card [data-testid="stRadioOption"]>div>div:first-child{transform:scale(1.3);margin:14px 22px 0 4px}
-.st-key-method_card [data-testid="stRadioOption"] p{font-size:15.5px!important;line-height:1.2;position:relative;padding-left:52px}
-.st-key-method_card [data-testid="stRadioOption"] p>span[role="img"]{position:absolute;left:0;top:4px;font-size:32px!important;color:#33413a}
-.st-key-method_card [data-testid="stRadioCaption"]{margin:2px 0 0 106px;padding:0!important}
-.st-key-method_card [data-testid="stRadioCaption"] p{font-size:14px!important;color:#24302a!important;line-height:1.35}
-/* make the whole card clickable */
-.st-key-method_card [data-testid="stRadioOption"]::after{content:'';position:absolute;inset:0}
+
+.st-key-method_card{
+    border:1px solid var(--line)!important;
+    border-radius:8px!important;
+    padding:10px!important;
+}
+
+/* Equal-width three-card layout */
+.st-key-method_card [data-testid="stHorizontalBlock"]{
+    align-items:stretch!important;
+    gap:16px!important;
+}
+
+/* Assessment Method information card */
+.st-key-method_card [data-testid="stHorizontalBlock"]
+> [data-testid="stColumn"]:first-child{
+    background:#f7faf7;
+    border:1px solid #d4ddd7;
+    border-radius:6px;
+    padding:16px;
+    min-height:130px;
+    display:flex;
+    justify-content:center;
+}
+
+/* Assessment Method heading */
+.v-method-title{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:-.3px;
+    margin-bottom:10px;
+}
+
+/* Assessment Method description */
+.v-method-sub{
+    font-size:14.5px;
+    color:#2e3a33;
+    line-height:1.5;
+}
+
+/* Hide radio group label */
+.st-key-method_card [data-testid="stRadio"]
+>label[data-testid="stWidgetLabel"]{
+    display:none!important;
+}
+
+/* Two assessment options */
+.st-key-method_card [role="radiogroup"]{
+    display:flex!important;
+    flex-wrap:nowrap!important;
+    gap:16px!important;
+    width:100%;
+    align-items:stretch!important;
+}
+
+/* Equal-height option cards */
+.st-key-method_card [role="radiogroup"]>div{
+    flex:1 1 0;
+    min-width:0;
+    position:relative;
+    min-height:130px;
+    margin:0!important;
+    padding:16px!important;
+    border:1px solid #d4ddd7;
+    border-radius:6px;
+    background:#fff;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+/* Selected assessment method */
+.st-key-method_card [role="radiogroup"]
+>div[data-selected="true"]{
+    background:#eaf7ea;
+    border:1.5px solid #2e9a57;
+}
+
+/* Radio option */
+.st-key-method_card [data-testid="stRadioOption"]{
+    margin:0!important;
+    padding:0!important;
+    cursor:pointer;
+}
+
+.st-key-method_card [data-testid="stRadioOption"]>div{
+    align-items:flex-start;
+}
+
+.st-key-method_card [data-testid="stRadioOption"]
+>div>div:first-child{
+    transform:scale(1.3);
+    margin:14px 22px 0 4px;
+}
+
+/* Option titles */
+.st-key-method_card [data-testid="stRadioOption"] p{
+    font-size:15.5px!important;
+    line-height:1.2;
+    position:relative;
+    padding-left:52px;
+}
+
+.st-key-method_card [data-testid="stRadioOption"]
+p>span[role="img"]{
+    position:absolute;
+    left:0;
+    top:4px;
+    font-size:32px!important;
+    color:#33413a;
+}
+
+/* Option descriptions */
+.st-key-method_card [data-testid="stRadioCaption"]{
+    margin:6px 0 0 106px;
+    padding:0!important;
+}
+
+.st-key-method_card [data-testid="stRadioCaption"] p{
+    font-size:14px!important;
+    color:#24302a!important;
+    line-height:1.45;
+}
+
+/* Entire option card clickable */
+.st-key-method_card [data-testid="stRadioOption"]::after{
+    content:'';
+    position:absolute;
+    inset:0;
+}
 
 /* ---------- uploader ---------- */
 [data-testid="stFileUploader"]>label{display:none!important}
