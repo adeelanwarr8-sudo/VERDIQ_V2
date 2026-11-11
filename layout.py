@@ -75,10 +75,10 @@ def render_navigation() -> None:
 def render_sidebar() -> Project:
     st.markdown('<div class="v-panel-title">Project Setup</div>'
                 '<div class="v-panel-sub">Define project parameters and import the site plan.</div>', unsafe_allow_html=True)
-    name = st.text_input("Project Name", value="Nacka Demonstration", key="project_name")
+    name = st.text_input("Project Name", value="", key="project_name", placeholder="Enter project name")
     kind = st.selectbox("Project Type", ["Residential", "Mixed-use", "Commercial", "School / Preschool", "Public space", "Other"],
                         key="project_type")
-    address = st.text_input("Project Site Address", value="Sickla Allé 12, 131 54 Nacka, Sweden", key="project_address")
+    address = st.text_input("Project Site Address", value="", key="project_address", placeholder="Enter project site address")
     muni = st.selectbox("Municipality", list(MODELS), key="municipality")
     choices = MODELS[muni]
     if st.session_state.get("gyf_version") not in [x[0] for x in choices]:

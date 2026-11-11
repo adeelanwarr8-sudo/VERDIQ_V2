@@ -29,3 +29,6 @@ README.md
 
 ## Limitations
 **This is a visual prototype only.** DXF upload does not render the drawing, the plan, quantities, layer mapping, validation, recommendations and exports are sample content and not computed. No imports or dependencies on VERDIQ V1.
+
+## Sidebar refinement
+Project name and site address start blank with input prompts; the project-description line wraps inside the sidebar. All calculations and DXF processing remain disconnected.

@@ -43,7 +43,7 @@ button[data-testid="collapsedControl"],[data-testid="stStatusWidget"]{display:no
 
 /* ---------- left project panel ---------- */
 .v-panel-title{font-size:23px;font-weight:700;letter-spacing:-.4px;line-height:1.15;margin-top:0}
-.v-panel-sub{font-size:12.6px;color:var(--muted);margin:2px 0 4px;letter-spacing:-.15px;white-space:nowrap}
+.v-panel-sub{font-size:12.6px;color:var(--muted);margin:2px 0 8px;letter-spacing:-.15px;white-space:normal;overflow-wrap:anywhere;line-height:1.45;max-width:100%}
 [data-testid="stWidgetLabel"] p{font-size:15px!important;font-weight:700!important;color:var(--ink)!important;letter-spacing:-.2px}
 label[data-testid="stWidgetLabel"]{display:flex!important;justify-content:flex-start!important;align-items:center;gap:9px;width:auto!important;margin-bottom:3px;min-height:0}
 label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
@@ -199,3 +199,8 @@ label[data-testid="stWidgetLabel"]>div{width:auto!important;flex:none!important}
   .v-chips{flex-wrap:wrap}.v-steps .l{display:none}.v-footer{gap:16px}
   [class*="st-key-nav_"] button p{font-size:14px!important}
 }
+
+/* Prevent Project Setup text and inputs from exceeding the left panel. */
+.st-key-side_panel{min-width:0!important;overflow-wrap:anywhere}
+.st-key-side_panel [data-testid="stVerticalBlock"],.st-key-side_panel [data-testid="stElementContainer"]{min-width:0;max-width:100%}
+.st-key-side_panel [data-testid="stTextInputRootElement"]{width:100%!important;min-width:0}
