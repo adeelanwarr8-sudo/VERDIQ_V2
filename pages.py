@@ -42,7 +42,8 @@ def render_project_setup(project: Project) -> None:
                 unsafe_allow_html=True)
 
     with st.container(border=True, key="method_card"):
-        intro, options = st.columns([1, 2.65], vertical_alignment="center")
+       
+        intro, options = st.columns([1, 2], gap="medium", vertical_alignment="center")
         with intro:
             st.markdown('<div class="v-method-title">Assessment Method</div>'
                         '<div class="v-method-sub">Choose how you want to provide quantities for your GYF assessment.</div>',
