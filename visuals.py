@@ -55,5 +55,5 @@ def kpi(label: str, value: str, note: str = "", danger: bool = False) -> None:
 
 
 def continue_button(label: str, page: str, key: str) -> None:
-    from app.layout import set_page
+    from layout import set_page
     st.button(label, type="primary", key=key, on_click=set_page, args=(page,), use_container_width=True)

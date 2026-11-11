@@ -7,8 +7,8 @@ from __future__ import annotations
 import streamlit as st
 from html import escape
 
-from app.layout import Project
-from app.visuals import card, continue_button, kpi, show_plan, title
+from layout import Project
+from visuals import card, continue_button, kpi, show_plan, title
 
 SAMPLE_ROWS = [
     {"CAD layer": "G_Y3 · Planting beds", "Mapped factor": "Planting bed ≥800 mm", "Quantity": "3,678.1 m²", "Review": "Example"},

@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from pathlib import Path
 import streamlit as st
 
-CSS = Path(__file__).resolve().parent.parent / "assets" / "styles.css"
+CSS = Path(__file__).resolve().parent / "styles.css"
 
 MODEL_OPTIONS = {
     "Nacka": [

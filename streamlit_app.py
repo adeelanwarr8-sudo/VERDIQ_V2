@@ -9,8 +9,8 @@ import streamlit as st
 
 st.set_page_config(page_title="Verdiq Studio V2 | UI Prototype", page_icon="🌿", layout="wide", initial_sidebar_state="expanded")
 
-from app.layout import apply_styles, render_header, render_navigation, render_sidebar  # noqa: E402
-from app.pages import (  # noqa: E402
+from layout import apply_styles, render_header, render_navigation, render_sidebar  # noqa: E402
+from pages import (  # noqa: E402
     render_project_setup, render_plan_quantities, render_gyf_assessment,
     render_design_improvements, render_compare_designs, render_reports_export,
 )
