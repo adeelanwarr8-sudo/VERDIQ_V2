@@ -1,0 +1,4728 @@
+{
+  "Stockholm|2021-02-01": {
+    "factors": [
+      {
+        "id": "natural_ground_preserved",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.6,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Bevarad naturmark",
+          "en": "Preserved natural ground"
+        }
+      },
+      {
+        "id": "bed_unbuilt",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.6,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Ej underbyggd växtbädd",
+          "en": "Planting bed, not over structure"
+        }
+      },
+      {
+        "id": "bed_slab_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag >800 mm djup",
+          "en": "Planting bed on slab, >800 mm"
+        }
+      },
+      {
+        "id": "bed_slab_600_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag 600-800 mm djup",
+          "en": "Planting bed on slab, 600-800 mm"
+        }
+      },
+      {
+        "id": "bed_slab_200_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag 200-600 mm djup",
+          "en": "Planting bed on slab, 200-600 mm"
+        }
+      },
+      {
+        "id": "roof_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Grönt tak med >600 mm djup växtbädd",
+          "en": "Green roof, >600 mm"
+        }
+      },
+      {
+        "id": "roof_300_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Grönt tak med 300-600 mm djup växtbädd",
+          "en": "Green roof, 300-600 mm"
+        }
+      },
+      {
+        "id": "roof_120_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Grönt tak med 120-300 mm djup växtbädd",
+          "en": "Green roof, 120-300 mm"
+        }
+      },
+      {
+        "id": "roof_50_120",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Grönt tak med 50-120 mm djup växtbädd",
+          "en": "Green roof, 50-120 mm"
+        }
+      },
+      {
+        "id": "wall_substrate",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.7,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Gröna väggar med växtsubstrat",
+          "en": "Green wall with substrate"
+        }
+      },
+      {
+        "id": "balcony_bed",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd balkonger",
+          "en": "Balcony planting bed"
+        }
+      },
+      {
+        "id": "field_diversity",
+        "section": "green_field",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Diversitet i fältskiktet",
+          "en": "Field-layer diversity (30+ species)"
+        }
+      },
+      {
+        "id": "roof_diversity_120",
+        "section": "green_field",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Diversitet på gröna tak >120 mm",
+          "en": "Green-roof diversity, >120 mm"
+        }
+      },
+      {
+        "id": "habitat_species",
+        "section": "green_field",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Arturval från karaktärshabitat",
+          "en": "Species from character habitat"
+        }
+      },
+      {
+        "id": "butterfly_bed",
+        "section": "green_field",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "constraints": [
+          {
+            "type": "min_area",
+            "value": 5,
+            "severity": "warning",
+            "text": "Ytan ska vara minst 5 kvm"
+          }
+        ],
+        "excludes": [
+          "field_diversity"
+        ],
+        "label": {
+          "sv": "Fjärilsrabatt",
+          "en": "Butterfly bed"
+        }
+      },
+      {
+        "id": "shrubs",
+        "section": "green_shrub",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "note": "Solitary shrubs >2.5 m count as 4 m2 each",
+        "label": {
+          "sv": "Buskar generellt",
+          "en": "Shrubs, general"
+        }
+      },
+      {
+        "id": "shrubs_berry",
+        "section": "green_shrub",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Bärande buskar",
+          "en": "Berry-bearing shrubs"
+        }
+      },
+      {
+        "id": "tree_existing",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.2,
+        "unit_area_m2": 50,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Befintligt träd",
+          "en": "Existing tree (>20 cm)"
+        }
+      },
+      {
+        "id": "tree_new_large",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.8,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Nya stora träd (stam >30 cm)",
+          "en": "New large tree (girth >30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_medium",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.9,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Nya mellanstora träd (stam 20-30 cm)",
+          "en": "New medium tree (girth 20-30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_small",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Nya små träd (stam 16-20 cm)",
+          "en": "New small tree (girth 16-20 cm)"
+        }
+      },
+      {
+        "id": "tree_character",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Karaktärsträd",
+          "en": "Character tree"
+        }
+      },
+      {
+        "id": "tree_berry",
+        "section": "green_tree",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Bärande träd",
+          "en": "Berry-bearing tree"
+        }
+      },
+      {
+        "id": "vertical_green",
+        "section": "green_vertical",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Grönska på väggar, murar, spaljéer, pergola m.m.",
+          "en": "Climbers on walls, trellises, pergolas (5-year cover)"
+        }
+      },
+      {
+        "id": "nest_boxes",
+        "section": "green_elements",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "max_count",
+            "value": 10,
+            "severity": "error",
+            "text": "Max 10 element får räknas per gård"
+          }
+        ],
+        "label": {
+          "sv": "Holkar, bikupor, faunadepåer m.m.",
+          "en": "Nest boxes, beehives, fauna depots"
+        }
+      },
+      {
+        "id": "habitat_measures",
+        "section": "green_elements",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "note": "Amphibian guide strips: length x 2.0",
+        "label": {
+          "sv": "Habitatstärkande livsmiljöer",
+          "en": "Habitat-enhancing measures"
+        }
+      },
+      {
+        "id": "social_activity",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.2,
+        "groups": [
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "min_area",
+            "value": 75,
+            "severity": "warning",
+            "text": "Användbar gräsyta ska vara större än 75 kvm"
+          }
+        ],
+        "label": {
+          "sv": "Ytor för social aktivitet (lekyta på skola/förskola)",
+          "en": "Lawn for social activity"
+        }
+      },
+      {
+        "id": "cultivation",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.7,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Odlingsytor",
+          "en": "Cultivation areas (bed >=300 mm)"
+        }
+      },
+      {
+        "id": "cultivation_balcony_roof",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Balkonger, takterrasser och växthus för odling",
+          "en": "Balconies, roof terraces, greenhouses for growing"
+        }
+      },
+      {
+        "id": "shared_roof_terrace",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_total",
+            "of": [
+              "roof_600",
+              "roof_300_600",
+              "roof_120_300"
+            ],
+            "min_value": 100,
+            "severity": "warning",
+            "text": "Kräver minst 100 kvm gröna tak med >120 mm växtbädd"
+          }
+        ],
+        "label": {
+          "sv": "Gemensamma takterrasser",
+          "en": "Shared roof terraces"
+        }
+      },
+      {
+        "id": "visible_green_roof",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Synliga gröna tak",
+          "en": "Visible green roofs"
+        }
+      },
+      {
+        "id": "front_yard_green",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Grönskande förgårdsmark",
+          "en": "Green front-yard land (trees 25 m2 each)"
+        }
+      },
+      {
+        "id": "pergola",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Pergolor o.dyl.",
+          "en": "Pergolas (ground projection)"
+        }
+      },
+      {
+        "id": "flower_display",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Blomsterprakt i fältskiktet",
+          "en": "Flowering perennials"
+        }
+      },
+      {
+        "id": "shrubs_edible",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Buskar med ätliga bär och frukter",
+          "en": "Shrubs with edible berries"
+        }
+      },
+      {
+        "id": "fruit_trees",
+        "section": "green_recreation",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 25,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Fruktträd och blommande träd",
+          "en": "Fruit and flowering trees"
+        }
+      },
+      {
+        "id": "shade_trees",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Träd placerade så att de ger lövskugga",
+          "en": "Trees placed to give leaf shade"
+        }
+      },
+      {
+        "id": "shade_pergola",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Pergolor, lövgångar mm som ger lövskugga",
+          "en": "Pergolas giving leaf shade"
+        }
+      },
+      {
+        "id": "multilayer_vegetation",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Flerskiktad växtlighet",
+          "en": "Multi-layer vegetation"
+        }
+      },
+      {
+        "id": "water_ponds",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Vattenytor i dammar, bäckar och diken",
+          "en": "Ponds, streams, ditches"
+        }
+      },
+      {
+        "id": "paving_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Öppna hårdgjorda ytor",
+          "en": "Open paving (grass-reinforced)"
+        }
+      },
+      {
+        "id": "paving_semi_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Halvöppna hårdgjorda ytor",
+          "en": "Semi-open paving (gravel, open asphalt)"
+        }
+      },
+      {
+        "id": "paving_jointed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Hårdgjorda ytor med fogar",
+          "en": "Jointed paving"
+        }
+      },
+      {
+        "id": "sealed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.0,
+        "groups": [],
+        "label": {
+          "sv": "Täta ytor",
+          "en": "Sealed surfaces"
+        }
+      },
+      {
+        "id": "water_permanent",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 4.0,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga permanenta vattenytor",
+          "en": "Permanent, biologically accessible water"
+        }
+      },
+      {
+        "id": "water_temporary",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "S",
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Vegetationsytor med tillfälligt kvardröjande vatten",
+          "en": "Vegetation with temporary standing water"
+        }
+      },
+      {
+        "id": "retention_ponds",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Förd. av dagvatten från hårdgjorda ytor i dammar och fuktstråk",
+          "en": "Runoff retained in ponds/swales (drained area)"
+        }
+      },
+      {
+        "id": "runoff_to_beds",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Avvattning av hårdgjorda ytor till växtbäddar",
+          "en": "Hard surfaces drained to planting beds"
+        }
+      },
+      {
+        "id": "water_mirror",
+        "section": "water_recreation",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Vattenspeglar",
+          "en": "Reflecting pools"
+        }
+      },
+      {
+        "id": "fountains",
+        "section": "water_recreation",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 50,
+        "groups": [
+          "K",
+          "R"
+        ],
+        "label": {
+          "sv": "Fontäner, cirkulationsanläggning o.dyl.",
+          "en": "Fountains, circulating water"
+        }
+      },
+      {
+        "id": "water_storage_pond",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Vattensamlingar i damm o.dyl.",
+          "en": "Water held in ponds through dry periods"
+        }
+      },
+      {
+        "id": "rainwater_irrigation",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Uppsamling av regnvatten för bevattning",
+          "en": "Rainwater harvesting for irrigation (drained area)"
+        }
+      },
+      {
+        "id": "retention_tank",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Förd. av dagvatten från hårdgjorda ytor i magasin",
+          "en": "Runoff retained in tanks (drained area)"
+        }
+      }
+    ],
+    "version": "2021-02-01",
+    "municipality": "Stockholm",
+    "source_file": "rulebook_stockholm_gyf_2021-02-01.yaml"
+  },
+  "Stockholm|2015-06-17": {
+    "factors": [
+      {
+        "id": "natural_ground_preserved",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Bevarad naturmark",
+          "en": "Preserved natural ground"
+        }
+      },
+      {
+        "id": "ground_green_unbuilt",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Ej underbyggd markgrönska",
+          "en": "Ground vegetation, not over structure"
+        }
+      },
+      {
+        "id": "bed_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.4,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd >800 mm djup",
+          "en": "Planting bed >800 mm"
+        }
+      },
+      {
+        "id": "bed_600_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd 600-800 mm djup",
+          "en": "Planting bed 600-800 mm"
+        }
+      },
+      {
+        "id": "bed_200_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd 200-600 mm djup",
+          "en": "Planting bed 200-600 mm"
+        }
+      },
+      {
+        "id": "roof_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med > 300 mm djup växtbädd",
+          "en": "Green roof >300 mm"
+        }
+      },
+      {
+        "id": "roof_110_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med 110-300 mm djup växtbädd",
+          "en": "Green roof 110-300 mm"
+        }
+      },
+      {
+        "id": "roof_50_110",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med 50-110 mm djup växtbädd",
+          "en": "Green roof 50-110 mm"
+        }
+      },
+      {
+        "id": "wall_green",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönska på väggar",
+          "en": "Green walls"
+        }
+      },
+      {
+        "id": "balcony_green",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönskande balkonger",
+          "en": "Green balconies"
+        }
+      },
+      {
+        "id": "field_diversity",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet i fältskiktet",
+          "en": "Field-layer diversity"
+        }
+      },
+      {
+        "id": "natural_species",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Naturligt arturval",
+          "en": "Natural species selection"
+        }
+      },
+      {
+        "id": "sedum_diversity",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet på gröna tunna sedumtak",
+          "en": "Diversity on thin sedum roofs"
+        }
+      },
+      {
+        "id": "balcony_climbers",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Grönskande balkonger med häng- eller klätterväxter",
+          "en": "Balconies with trailing or climbing plants"
+        }
+      },
+      {
+        "id": "butterfly_bed",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Fjärilsrabatt",
+          "en": "Butterfly bed"
+        }
+      },
+      {
+        "id": "shrubs",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Buskar generellt",
+          "en": "Shrubs, general"
+        }
+      },
+      {
+        "id": "shrubs_berry",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande buskar",
+          "en": "Berry-bearing shrubs"
+        }
+      },
+      {
+        "id": "tree_character",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Karaktärsträd",
+          "en": "Character tree"
+        }
+      },
+      {
+        "id": "tree_existing",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 50,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Befintliga träd",
+          "en": "Existing trees"
+        }
+      },
+      {
+        "id": "tree_new_large",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Nya stora träd (stam >30 cm)",
+          "en": "New large tree"
+        }
+      },
+      {
+        "id": "tree_new_medium",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.5,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Nya mellanstora träd (stam 20-30 cm)",
+          "en": "New medium tree"
+        }
+      },
+      {
+        "id": "tree_new_small",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Nya små träd (stam 16-20 cm)",
+          "en": "New small tree"
+        }
+      },
+      {
+        "id": "tree_berry",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande träd",
+          "en": "Berry-bearing tree"
+        }
+      },
+      {
+        "id": "nest_boxes",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Holkar, bikupor",
+          "en": "Nest boxes, beehives"
+        }
+      },
+      {
+        "id": "beetle_boxes",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Baggholkar",
+          "en": "Beetle boxes"
+        }
+      },
+      {
+        "id": "fauna_depots",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Faunadepåer",
+          "en": "Fauna depots"
+        }
+      },
+      {
+        "id": "habitat_elements",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Biologiska gestaltningselement/habitatstärkande åtgärder",
+          "en": "Habitat-enhancing elements"
+        }
+      },
+      {
+        "id": "social_activity",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Ytor för social aktivitet",
+          "en": "Lawn for social activity"
+        }
+      },
+      {
+        "id": "cultivation",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Odlingsytor",
+          "en": "Cultivation areas"
+        }
+      },
+      {
+        "id": "cultivation_balcony_roof",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Tak, balkonger, terrasser och växthus för odling",
+          "en": "Roofs, balconies, greenhouses for growing"
+        }
+      },
+      {
+        "id": "shared_roof_terrace",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Gemensamma takterasser",
+          "en": "Shared roof terraces"
+        }
+      },
+      {
+        "id": "visible_green_roof",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Synliga gröna tak",
+          "en": "Visible green roofs"
+        }
+      },
+      {
+        "id": "flower_display",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Blomsterprakt i fältskiktet",
+          "en": "Flowering perennials"
+        }
+      },
+      {
+        "id": "shrubs_experience",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Buskar upplevelsevärden",
+          "en": "Shrubs, experience value"
+        }
+      },
+      {
+        "id": "shrubs_edible",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Buskar med ätliga bär och frukter",
+          "en": "Shrubs with edible berries"
+        }
+      },
+      {
+        "id": "trees_experience",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Träd, upplevelsevärden",
+          "en": "Trees, experience value"
+        }
+      },
+      {
+        "id": "fruit_trees",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Fruktträd",
+          "en": "Fruit trees"
+        }
+      },
+      {
+        "id": "pergola",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Pergolor o.dyl.",
+          "en": "Pergolas"
+        }
+      },
+      {
+        "id": "habitat_experience",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Habitatstärkande åtgärder, upplevelsevärden",
+          "en": "Habitat measures, experience value"
+        }
+      },
+      {
+        "id": "shade_trees",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Träd placerade så att de ger lövskugga",
+          "en": "Trees giving leaf shade"
+        }
+      },
+      {
+        "id": "shade_pergola",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Pergolor, lövgångar mm som ger lövskugga",
+          "en": "Pergolas giving leaf shade"
+        }
+      },
+      {
+        "id": "roof_or_multilayer",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Gröna tak eller flerskiktad markgrönska",
+          "en": "Green roofs or multi-layer ground vegetation"
+        }
+      },
+      {
+        "id": "vegetated_ground_noise",
+        "section": "green_sound",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Vegetationsklädd mark",
+          "en": "Vegetated ground"
+        }
+      },
+      {
+        "id": "wall_substrate_noise",
+        "section": "green_sound",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Grönska på väggar, växtsubstrat på väggen",
+          "en": "Green walls with substrate"
+        }
+      },
+      {
+        "id": "wall_climbers_noise",
+        "section": "green_sound",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Grönska på väggar, klätterväxter",
+          "en": "Green walls, climbers"
+        }
+      },
+      {
+        "id": "green_roofs_noise",
+        "section": "green_sound",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Gröna tak",
+          "en": "Green roofs"
+        }
+      },
+      {
+        "id": "water_ponds",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Vattenytor i dammar, bäckar och diken",
+          "en": "Ponds, streams, ditches"
+        }
+      },
+      {
+        "id": "paving_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Öppna hårdgjorda ytor",
+          "en": "Open paving"
+        }
+      },
+      {
+        "id": "paving_semi_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Halvöppna hårdgjorda ytor",
+          "en": "Semi-open paving"
+        }
+      },
+      {
+        "id": "paving_jointed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Hårdgjorda ytor med fogar",
+          "en": "Jointed paving"
+        }
+      },
+      {
+        "id": "sealed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.0,
+        "groups": [],
+        "label": {
+          "sv": "Täta ytor",
+          "en": "Sealed surfaces"
+        }
+      },
+      {
+        "id": "water_permanent",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 4.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga permanenta vattenytor",
+          "en": "Permanent accessible water"
+        }
+      },
+      {
+        "id": "swale_temporary",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Fuktstråk med tillfälligt kvardröjande vatten",
+          "en": "Swales with temporary water"
+        }
+      },
+      {
+        "id": "retention_surface",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Förd. av dagvatten från hårdgjorda ytor i ytvattensamlingar och fuktstråk",
+          "en": "Runoff retained in surface water features"
+        }
+      },
+      {
+        "id": "runoff_to_green",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Avvattning av hårdgjorda ytor till omgivande grönska på mark, regnbäddar mm",
+          "en": "Hard surfaces drained to green areas"
+        }
+      },
+      {
+        "id": "retention_tank",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Förd. av dagvatten från hårdgjorda ytor i magasin",
+          "en": "Runoff retained in tanks"
+        }
+      },
+      {
+        "id": "water_mirror",
+        "section": "water_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Vattenspeglar",
+          "en": "Reflecting pools"
+        }
+      },
+      {
+        "id": "water_experience",
+        "section": "water_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga vatten - upplevelsevärden",
+          "en": "Accessible water, experience value"
+        }
+      },
+      {
+        "id": "fountains_social",
+        "section": "water_social",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.3,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Fontäner o.dyl. (sociala)",
+          "en": "Fountains (social)"
+        }
+      },
+      {
+        "id": "water_dry_periods",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Vattensamlingar för torrperioder",
+          "en": "Water storage for dry periods"
+        }
+      },
+      {
+        "id": "rainwater_irrigation",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Uppsamling i magasin av regnvatten för bevattning",
+          "en": "Rainwater stored for irrigation"
+        }
+      },
+      {
+        "id": "fountains_climate",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.3,
+        "unit_area_m2": 25,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Fontäner o.dyl. (klimat)",
+          "en": "Fountains (climate)"
+        }
+      },
+      {
+        "id": "fountains_sound",
+        "section": "water_sound",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.3,
+        "unit_area_m2": 25,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Fontäner o.dyl. (ljud)",
+          "en": "Fountains (sound)"
+        }
+      }
+    ],
+    "version": "2015-06-17",
+    "municipality": "Stockholm",
+    "source_file": "rulebook_stockholm_gyf_2015-06-17.yaml"
+  },
+  "Nacka|2019-10": {
+    "factors": [
+      {
+        "id": "natural_ground_preserved",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [],
+        "label": {
+          "sv": "Bevarad naturmark"
+        }
+      },
+      {
+        "id": "ground_green_unbuilt",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.1,
+        "groups": [],
+        "label": {
+          "sv": "Ej underbyggd markgrönska"
+        }
+      },
+      {
+        "id": "bed_800",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.9,
+        "groups": [],
+        "label": {
+          "sv": "Växtbädd ≥ 800 mm djup"
+        }
+      },
+      {
+        "id": "bed_600_799",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [],
+        "label": {
+          "sv": "Växtbädd 600-799 mm djup"
+        }
+      },
+      {
+        "id": "bed_200_599",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [],
+        "label": {
+          "sv": "Växtbädd 200-599 mm djup"
+        }
+      },
+      {
+        "id": "roof_300",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [],
+        "label": {
+          "sv": "Grönt tak med ≥ 300 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "roof_110_299",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [],
+        "label": {
+          "sv": "Grönt tak med 110-299 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "roof_50_109",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [],
+        "label": {
+          "sv": "Grönt tak med 50 - 109 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "wall_green",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [],
+        "label": {
+          "sv": "Grönska på väggar"
+        }
+      },
+      {
+        "id": "balcony_green",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [],
+        "label": {
+          "sv": "Grönskande balkonger"
+        }
+      },
+      {
+        "id": "tree_existing_large",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 50,
+        "groups": [],
+        "label": {
+          "sv": "Befintliga stora träd >30 cm"
+        }
+      },
+      {
+        "id": "tree_existing_other",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "count",
+        "factor": 1.5,
+        "unit_area_m2": 50,
+        "groups": [],
+        "label": {
+          "sv": "Befintliga övriga träd 15-30 cm"
+        }
+      },
+      {
+        "id": "tree_new_large",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "count",
+        "factor": 2.4,
+        "unit_area_m2": 25,
+        "groups": [],
+        "label": {
+          "sv": "Nya stora träd (stam >30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_medium",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "count",
+        "factor": 1.5,
+        "unit_area_m2": 25,
+        "groups": [],
+        "label": {
+          "sv": "Nya mellanstora träd (stam 20-30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_small",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 25,
+        "groups": [],
+        "label": {
+          "sv": "Nya små träd (stam 16-20 cm)"
+        }
+      },
+      {
+        "id": "shrubs",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [],
+        "label": {
+          "sv": "Buskar generellt"
+        }
+      },
+      {
+        "id": "water_ponds",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [],
+        "label": {
+          "sv": "Vattenytor i dammar, bäckar och diken"
+        }
+      },
+      {
+        "id": "paving_grass_reinforced",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [],
+        "label": {
+          "sv": "Hårdgjorda ytor med hög genomsläpplighet - gräsarmering"
+        }
+      },
+      {
+        "id": "paving_gravel",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [],
+        "label": {
+          "sv": "Hårdgjorda ytor med medelhög genomsläpplighet - grus,sand mm"
+        }
+      },
+      {
+        "id": "paving_jointed",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [],
+        "label": {
+          "sv": "Hårdgjorda ytor med viss genomsläpplighet - plattytor med fogar"
+        }
+      },
+      {
+        "id": "sealed",
+        "section": "ytor",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.0,
+        "groups": [],
+        "label": {
+          "sv": "Täta ytor"
+        }
+      },
+      {
+        "id": "social_lawn",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.2,
+        "groups": [
+          "S"
+        ],
+        "constraints": [
+          {
+            "type": "min_area",
+            "value": 75,
+            "severity": "warning",
+            "text": "Gräsytan ska vara större än 75 kvm"
+          }
+        ],
+        "label": {
+          "sv": "Gräsytor för social aktivitet >75 kvm"
+        }
+      },
+      {
+        "id": "cultivation",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Odlingsytor"
+        }
+      },
+      {
+        "id": "cultivation_roof_balcony",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Tak, balkonger, terrasser och växthus för odling"
+        }
+      },
+      {
+        "id": "shared_roof_terrace",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Gemensamma takterasser"
+        }
+      },
+      {
+        "id": "visible_green_roof",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Synliga gröna tak"
+        }
+      },
+      {
+        "id": "green_walls_experience",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Gröna väggar, upplevelsevärden"
+        }
+      },
+      {
+        "id": "flower_display",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Blomsterprakt i fältskiktet"
+        }
+      },
+      {
+        "id": "shrubs_experience",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Buskar upplevelsevärden"
+        }
+      },
+      {
+        "id": "shrubs_edible",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Buskar med ätliga bär och frukter"
+        }
+      },
+      {
+        "id": "trees_experience",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Träd, upplevelsevärden"
+        }
+      },
+      {
+        "id": "fruit_flowering_trees",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Fruktträd och blommande träd"
+        }
+      },
+      {
+        "id": "pergola",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Pergolor o.dyl."
+        }
+      },
+      {
+        "id": "habitat_experience",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Habitatstärkande åtgärder, upplevelsevärden"
+        }
+      },
+      {
+        "id": "viewpoint",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Utsiktsplats mot grönska och/eller vatten"
+        }
+      },
+      {
+        "id": "water_features",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Vattenspeglar, cirkulerande rinnande vatten, fontäner och dylikt"
+        }
+      },
+      {
+        "id": "water_experience",
+        "section": "S",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga vatten - upplevelsevärden"
+        }
+      },
+      {
+        "id": "infiltrate_10mm",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Minst 10 mm infiltreras i växtbädd"
+        }
+      },
+      {
+        "id": "infiltrate_15mm",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Minst 15 mm infiltreras i växtbädd"
+        }
+      },
+      {
+        "id": "infiltrate_20mm",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.15,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Minst 20 mm infiltreras i växtbädd"
+        }
+      },
+      {
+        "id": "tank_10mm",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.02,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Minst 10 mm fördröjs och renas i magasin"
+        }
+      },
+      {
+        "id": "ground_green_infiltration",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Ej underbyggd markgrönska där vatten kan infiltrera"
+        }
+      },
+      {
+        "id": "slab_bed_300",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Växtytor med minst ≥ 300 mm jorddjup på bjälklag"
+        }
+      },
+      {
+        "id": "slab_bed_50_299",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Växtytor med 50-299 mm jorddjup på bjälklag"
+        }
+      },
+      {
+        "id": "permeable_paving",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Genomsläppliga beläggningar"
+        }
+      },
+      {
+        "id": "rain_garden",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Regnbädd som omhändertar dagvatten"
+        }
+      },
+      {
+        "id": "skeleton_soil",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Skelettjord som omhändertar dagvatten"
+        }
+      },
+      {
+        "id": "flood_area",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Översvämningsyta, tillfällig ytvattensamling"
+        }
+      },
+      {
+        "id": "series_systems",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.02,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Seriekopplade dagvattensystem"
+        }
+      },
+      {
+        "id": "downspout_splash",
+        "section": "D",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.02,
+        "groups": [
+          "D"
+        ],
+        "label": {
+          "sv": "Stuprör med utkastare"
+        }
+      },
+      {
+        "id": "field_diversity",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet i fältskiktet"
+        }
+      },
+      {
+        "id": "natural_species",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Naturligt arturval"
+        }
+      },
+      {
+        "id": "sedum_diversity",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet på gröna tunna sedumtak"
+        }
+      },
+      {
+        "id": "balcony_climbers",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Grönskande balkonger med häng- eller klätterväxter"
+        }
+      },
+      {
+        "id": "butterfly_bed",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Fjärilsrabatt"
+        }
+      },
+      {
+        "id": "shrubs_berry",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande buskar"
+        }
+      },
+      {
+        "id": "tree_old_coarse",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Äldre, grova träd"
+        }
+      },
+      {
+        "id": "tree_character",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Karaktärsträd"
+        }
+      },
+      {
+        "id": "tree_berry",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande träd"
+        }
+      },
+      {
+        "id": "nest_boxes",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "note": "Guide and template column F give 5 m2 per element, but the template formula (=E72*25) multiplies by 25. Verdiq follows the guide; use template_compat to reproduce the sheet.",
+        "label": {
+          "sv": "Holkar, bikupor"
+        }
+      },
+      {
+        "id": "beetle_boxes",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "note": "Guide and template column F give 5 m2 per element, but the template formula (=E73*25) multiplies by 25. Verdiq follows the guide; use template_compat to reproduce the sheet.",
+        "label": {
+          "sv": "Baggholkar och faunadepåer"
+        }
+      },
+      {
+        "id": "habitat_target_species",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "note": "Guide and template column F give 5 m2 per element, but the template formula (=E74*25) multiplies by 25. Verdiq follows the guide; use template_compat to reproduce the sheet.",
+        "label": {
+          "sv": "Habitatstärkande åtgärder för särskilt utpekade arter"
+        }
+      },
+      {
+        "id": "water_permanent",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 4.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga permanenta vattenytor"
+        }
+      },
+      {
+        "id": "water_temporary",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Ytvattensamlingar, fuktstråk med tillfälligt vatten"
+        }
+      },
+      {
+        "id": "green_blue_connection",
+        "section": "B",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.01,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Koppling till existerande grön- och blåstruktur utanför området"
+        }
+      },
+      {
+        "id": "shade_trees",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Träd placerade så att de ger lövskugga"
+        }
+      },
+      {
+        "id": "shade_pergola",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Pergolor, lövgångar mm som ger lövskugga"
+        }
+      },
+      {
+        "id": "roof_or_multilayer",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Gröna tak eller flerskiktad markgrönska"
+        }
+      },
+      {
+        "id": "water_dry_periods",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Vattensamlingar för torrperioder"
+        }
+      },
+      {
+        "id": "rainwater_irrigation",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Uppsamling av regnvatten för bevattning"
+        }
+      },
+      {
+        "id": "wind_trees",
+        "section": "K",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Träd som ger vindskydd"
+        }
+      },
+      {
+        "id": "trees_air",
+        "section": "L",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.1,
+        "unit_area_m2": 25,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Befintliga och nya träd"
+        }
+      },
+      {
+        "id": "vegetated_ground_air",
+        "section": "L",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Vegetationsklädd mark"
+        }
+      },
+      {
+        "id": "wall_green_air",
+        "section": "L",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Grönska på väggar"
+        }
+      },
+      {
+        "id": "green_roofs_air",
+        "section": "L",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.02,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Gröna tak"
+        }
+      },
+      {
+        "id": "trees_air_species",
+        "section": "L",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.3,
+        "unit_area_m2": 25,
+        "groups": [
+          "L"
+        ],
+        "label": {
+          "sv": "Trädarter som har särskilt god luftreningsförmåga"
+        }
+      }
+    ],
+    "version": "2019-10",
+    "municipality": "Nacka",
+    "source_file": "rulebook_nacka_gyf_2019-10.yaml"
+  },
+  "Täby|2017-04-25": {
+    "factors": [
+      {
+        "id": "tree_existing",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "count",
+        "factor": 4.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Befintliga träd (stam >20 cm)",
+          "en": "Existing trees (stem >20 cm)"
+        }
+      },
+      {
+        "id": "ground_existing",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Befintlig mark",
+          "en": "Existing ground and vegetation"
+        }
+      },
+      {
+        "id": "bed_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd (≥ 800 mm)",
+          "en": "Planting bed ≥ 800 mm"
+        }
+      },
+      {
+        "id": "bed_600_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd (600-800 mm)",
+          "en": "Planting bed 600-800 mm"
+        }
+      },
+      {
+        "id": "bed_300_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd (300-600 mm)",
+          "en": "Planting bed 300-600 mm"
+        }
+      },
+      {
+        "id": "bed_200_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd (200-300 mm)",
+          "en": "Planting bed 200-300 mm"
+        }
+      },
+      {
+        "id": "roof_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Gröna tak (> 300 mm)",
+          "en": "Green roof > 300 mm"
+        }
+      },
+      {
+        "id": "roof_50_300",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Gröna tak (50 - 300 mm)",
+          "en": "Green roof 50-300 mm"
+        }
+      },
+      {
+        "id": "solar_green_roof",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "K"
+        ],
+        "label": {
+          "sv": "Solceller integrerade med gröna tak",
+          "en": "Solar panels integrated with green roofs"
+        }
+      },
+      {
+        "id": "wall_green",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönska på väggar",
+          "en": "Green walls"
+        }
+      },
+      {
+        "id": "balcony_green",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Balkonger förberedda för odling samt integrerade balkonglådor",
+          "en": "Balconies prepared for growing, integrated planters"
+        }
+      },
+      {
+        "id": "tree_new_large",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Stora träd (stam >30 cm)",
+          "en": "Large trees (stem >30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_medium",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.5,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Mellanstora träd (stam 20-30 cm)",
+          "en": "Medium trees (stem 20-30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_small",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Små träd (stam 16-20 cm)",
+          "en": "Small trees (stem 16-20 cm)"
+        }
+      },
+      {
+        "id": "shrub_solitary",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 4,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Solitär buske",
+          "en": "Solitary shrub"
+        }
+      },
+      {
+        "id": "shrubs",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Buskar generellt",
+          "en": "Shrubs, general"
+        }
+      },
+      {
+        "id": "pergola_green",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Pergola med växtlighet",
+          "en": "Pergola with plants"
+        }
+      },
+      {
+        "id": "green_pillars",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.2,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Gröna pelare, portaler och övriga konstruktioner med grönska",
+          "en": "Green pillars, portals and other planted structures"
+        }
+      },
+      {
+        "id": "balcony_climbers",
+        "section": "green_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Integrerade balkonglådor med häng- och klängväxter",
+          "en": "Integrated balcony planters with trailing and climbing plants"
+        }
+      },
+      {
+        "id": "tree_noble",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Ädellövträd",
+          "en": "Noble broadleaf trees"
+        }
+      },
+      {
+        "id": "tree_berry",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 25,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande träd",
+          "en": "Berry-bearing trees"
+        }
+      },
+      {
+        "id": "shrubs_berry",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Bärande buskar",
+          "en": "Berry-bearing shrubs"
+        }
+      },
+      {
+        "id": "biotope_plantings",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Biotopplanteringar",
+          "en": "Biotope plantings"
+        }
+      },
+      {
+        "id": "field_diversity",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet i fältskiktet",
+          "en": "Field-layer diversity"
+        }
+      },
+      {
+        "id": "sedum_diversity",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Diversitet på gröna, tunna sedumtak",
+          "en": "Diversity on thin sedum roofs"
+        }
+      },
+      {
+        "id": "habitat_species",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Platsanpassat arturval",
+          "en": "Site-adapted species selection"
+        }
+      },
+      {
+        "id": "butterfly_bed",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Fjärilsrabatter",
+          "en": "Butterfly beds"
+        }
+      },
+      {
+        "id": "beetle_boxes",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.0,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "constraints": [
+          {
+            "type": "max_count",
+            "value": 10,
+            "severity": "warning",
+            "text": "Max 10 element per gård (riktlinjen s. 22)"
+          }
+        ],
+        "label": {
+          "sv": "Baggholkar och faunadepåer",
+          "en": "Beetle boxes and fauna depots"
+        }
+      },
+      {
+        "id": "nest_boxes",
+        "section": "green_bio",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 5,
+        "groups": [
+          "B"
+        ],
+        "constraints": [
+          {
+            "type": "max_count",
+            "value": 10,
+            "severity": "warning",
+            "text": "Max 10 element per gård (riktlinjen s. 22)"
+          }
+        ],
+        "label": {
+          "sv": "Holkar och bikupor",
+          "en": "Nest boxes and beehives"
+        }
+      },
+      {
+        "id": "tree_experience",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 25,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Träd, upplevelsevärden",
+          "en": "Trees, experience values"
+        }
+      },
+      {
+        "id": "shrubs_experience",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Buskar upplevelsevärden",
+          "en": "Shrubs, experience values"
+        }
+      },
+      {
+        "id": "flower_display",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Blomsterprakt",
+          "en": "Flower display"
+        }
+      },
+      {
+        "id": "visible_green_roof",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Synliga gröna tak",
+          "en": "Visible green roofs"
+        }
+      },
+      {
+        "id": "visible_green_walls",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Synliga gröna väggar",
+          "en": "Visible green walls"
+        }
+      },
+      {
+        "id": "activity_lawn",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Gräsyta för aktivitet",
+          "en": "Lawn for activity"
+        }
+      },
+      {
+        "id": "urban_farming",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Stadsodling",
+          "en": "Urban farming"
+        }
+      },
+      {
+        "id": "shared_roof_terrace",
+        "section": "green_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Gemensamma takterrasser",
+          "en": "Shared roof terraces"
+        }
+      },
+      {
+        "id": "shade_trees",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.5,
+        "unit_area_m2": 25,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Träd placerade så att de ger lövskugga",
+          "en": "Trees placed to give leaf shade"
+        }
+      },
+      {
+        "id": "shade_pergola",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Pergolor, lövgångar mm som ger lövskugga",
+          "en": "Pergolas, leaf walks giving shade"
+        }
+      },
+      {
+        "id": "multilayer_planting",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Flerskiktade planteringar",
+          "en": "Multi-layer plantings"
+        }
+      },
+      {
+        "id": "thick_green_roof",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Tjocka gröna tak",
+          "en": "Thick green roofs"
+        }
+      },
+      {
+        "id": "thin_green_roof",
+        "section": "green_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Tunna gröna tak",
+          "en": "Thin green roofs"
+        }
+      },
+      {
+        "id": "water_ponds",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Dammar, bäckar, gräsdiken",
+          "en": "Ponds, streams, grass swales"
+        }
+      },
+      {
+        "id": "water_mirror_channels",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Spegeldammar och ränndalar",
+          "en": "Mirror ponds and channels"
+        }
+      },
+      {
+        "id": "paving_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Öppna hårdgjorda ytor",
+          "en": "Open hard surfaces"
+        }
+      },
+      {
+        "id": "paving_semi_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Halvöppna hårdgjorda ytor",
+          "en": "Semi-open hard surfaces"
+        }
+      },
+      {
+        "id": "paving_jointed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Hårdgjorda ytor med fogar",
+          "en": "Hard surfaces with joints"
+        }
+      },
+      {
+        "id": "storage_tank",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Magasin med fördröjning",
+          "en": "Storage with detention"
+        }
+      },
+      {
+        "id": "temp_retention_lawn",
+        "section": "water_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Tillfällig fördröjning på gräsytor",
+          "en": "Temporary detention on lawns"
+        }
+      },
+      {
+        "id": "rain_garden",
+        "section": "water_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "B",
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Tillfällig fördröjning i planteringsytor/ regnträdgårdar",
+          "en": "Temporary detention in plantings / rain gardens"
+        }
+      },
+      {
+        "id": "skeletal_soil",
+        "section": "water_general",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Skelettjordsmagasin",
+          "en": "Structural soil storage"
+        }
+      },
+      {
+        "id": "water_permanent_bio",
+        "section": "water_bio",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 4.0,
+        "groups": [
+          "B"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga permanenta vatten",
+          "en": "Biologically accessible permanent water"
+        }
+      },
+      {
+        "id": "mirror_ponds",
+        "section": "water_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Spegeldammar",
+          "en": "Mirror ponds"
+        }
+      },
+      {
+        "id": "natural_ponds",
+        "section": "water_social",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S"
+        ],
+        "label": {
+          "sv": "Naturliga dammar med biologiskt liv",
+          "en": "Natural ponds with biological life"
+        }
+      },
+      {
+        "id": "rainwater_harvest",
+        "section": "water_climate",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.05,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Uppsamling av regnvatten för bevattning / svalka",
+          "en": "Rainwater collection for irrigation / cooling"
+        }
+      },
+      {
+        "id": "sealed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.0,
+        "groups": [],
+        "label": {
+          "sv": "Täta ytor och konventionella tak (0, Verdiq: för fullständig redovisning)",
+          "en": "Sealed surfaces and conventional roofs (0; Verdiq addition for complete accounting)"
+        }
+      }
+    ],
+    "version": "2017-04-25",
+    "municipality": "Täby",
+    "source_file": "rulebook_taby_gyf_vastra-roslags-nasby_2017-04-25.yaml"
+  },
+  "SGBC Miljöbyggnad|2026": {
+    "factors": [
+      {
+        "id": "natural_ground_preserved",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.6,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Bevarad naturmark"
+        }
+      },
+      {
+        "id": "bed_unbuilt",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.6,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Ej underbyggd växtbädd"
+        }
+      },
+      {
+        "id": "bed_slab_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.5,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag >800 mm djup"
+        }
+      },
+      {
+        "id": "bed_slab_600_800",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag 600-800 mm djup"
+        }
+      },
+      {
+        "id": "bed_slab_200_600",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Växtbädd på bjälklag 200-600 mm djup"
+        }
+      },
+      {
+        "id": "roof_400",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med >400 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "roof_250_400",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.4,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med 250-400 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "roof_120_250",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med 120-250 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "roof_50_120",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Grönt tak med 50 - 120 mm djup växtbädd"
+        }
+      },
+      {
+        "id": "wall_substrate",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.7,
+        "groups": [
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Gröna väggar med växtsubstrat"
+        }
+      },
+      {
+        "id": "balcony_bed",
+        "section": "green_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Växtbädd balkonger/odlingskärl"
+        }
+      },
+      {
+        "id": "field_diversity",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Diversitet i fältskiktet"
+        }
+      },
+      {
+        "id": "roof_diversity_90",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Diversitet på gröna tak >90 mm"
+        }
+      },
+      {
+        "id": "habitat_species",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Arturval från karaktärshabitat"
+        }
+      },
+      {
+        "id": "pollinator_bed",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Pollintörsvänlig rabatt"
+        }
+      },
+      {
+        "id": "shrubs_solitary",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Buskar solitärer"
+        }
+      },
+      {
+        "id": "shrub_plantings_hedges",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Buskplanteringar och häckar"
+        }
+      },
+      {
+        "id": "shrubs_berry",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.6,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Bärande buskar"
+        }
+      },
+      {
+        "id": "shrubs_pollinator",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.6,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "label": {
+          "sv": "Pollinatörsvänliga buskar"
+        }
+      },
+      {
+        "id": "tree_existing",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.2,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 50 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23>0,F35*I35,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Befintliga träd"
+        }
+      },
+      {
+        "id": "tree_existing_landscape",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.8,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 50 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23>0,F36*I36,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Befintliga träd inom landskapssamband"
+        }
+      },
+      {
+        "id": "tree_new_small",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.4,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F70>0,F37*I37,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Nya små träd (stam 16-20 cm)"
+        }
+      },
+      {
+        "id": "tree_new_medium",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.9,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F70>0,F38*I38,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Nya mellanstora träd (stam 20-30 cm)"
+        }
+      },
+      {
+        "id": "tree_new_large",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 2.8,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F70>0,F39*I39,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Nya stora träd (stam >30 cm)"
+        }
+      },
+      {
+        "id": "tree_character",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 3.0,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "tree_existing",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F35+F70>0,F40*I40,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Karaktärsträd"
+        }
+      },
+      {
+        "id": "tree_berry",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.6,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F70>0,F41*I41,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Bärande träd"
+        }
+      },
+      {
+        "id": "tree_pollinator",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.6,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "bed_slab_600_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H16+H18+H23+F70>0,F42*I42,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Träd som gynnar pollinatörer"
+        }
+      },
+      {
+        "id": "vertical_green",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Vertikal grönska"
+        }
+      },
+      {
+        "id": "nest_boxes",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.8,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "note": "SGBC's sheet shows 5 m2 per element in the area column, but scores count x factor (=F46*I46). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Holkar"
+        }
+      },
+      {
+        "id": "insect_hotels",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.8,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "note": "SGBC's sheet shows 5 m2 per element in the area column, but scores count x factor (=F47*I47). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Insektshotell"
+        }
+      },
+      {
+        "id": "fauna_depots",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.8,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Faunadepåer"
+        }
+      },
+      {
+        "id": "sand_beds",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.8,
+        "groups": [
+          "S",
+          "K"
+        ],
+        "label": {
+          "sv": "Sandbäddar"
+        }
+      },
+      {
+        "id": "cultivation",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.7,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Odlingsytor"
+        }
+      },
+      {
+        "id": "biotope_balconies",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Biotopbalkonger"
+        }
+      },
+      {
+        "id": "shade_trees",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.4,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "R",
+          "K"
+        ],
+        "constraints": [
+          {
+            "type": "requires_any",
+            "of": [
+              "natural_ground_preserved",
+              "bed_unbuilt",
+              "bed_slab_800",
+              "roof_400",
+              "balcony_bed",
+              "trees_structural_soil"
+            ],
+            "severity": "warning",
+            "text": "Räknas bara tillsammans med en planteringsyta som kvaliteten kräver"
+          }
+        ],
+        "note": "SGBC's sheet shows 25 m2 per element in the area column, but scores count x factor (=IF(H13+H14+H15+H18+H23+F70>0,F53*I53,0)). Verdiq reproduces the sheet; question sent to SGBC.",
+        "label": {
+          "sv": "Skuggivande träd"
+        }
+      },
+      {
+        "id": "shade_pergolas",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Skuggivande pergolor"
+        }
+      },
+      {
+        "id": "multilayer_vegetation",
+        "section": "green_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Flerskiktad växtlighet"
+        }
+      },
+      {
+        "id": "sealed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.0,
+        "groups": [],
+        "label": {
+          "sv": "Täta hårdgjorda ytor (takytor utan vegetation, asfalt, betong)"
+        }
+      },
+      {
+        "id": "paving_semi_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.3,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Halvöppna hårdgjorda ytor (ex. grus, sand, singel, öppen asfalt)"
+        }
+      },
+      {
+        "id": "paving_open",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Öppna hårdgjorda ytor (ex. gräsarmerad betong, natursten)"
+        }
+      },
+      {
+        "id": "paving_jointed",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Hårdgjorda ytor med fogar"
+        }
+      },
+      {
+        "id": "hard_drained_to_vegetation",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Avvattnade hårdgjorda ytor till vegetationsytor"
+        }
+      },
+      {
+        "id": "roof_drained_to_vegetation",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.8,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Avvattnade gröna tak till vegetationsytor"
+        }
+      },
+      {
+        "id": "hard_drained_to_rain_garden",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.7,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Avvattnade hårdgjorda ytor till regnträdgård/dike"
+        }
+      },
+      {
+        "id": "roof_drained_to_rain_garden",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.8,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Avattnade gröna tak till regnträdgård"
+        }
+      },
+      {
+        "id": "stormwater_retention_storage",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [],
+        "label": {
+          "sv": "Uppsamling och fördröjning av dagvatten (ex. fördröjningsmagasin, dagvattentunna)"
+        }
+      },
+      {
+        "id": "water_ponds",
+        "section": "water_base",
+        "kind": "base",
+        "measure": "area",
+        "factor": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Vattenytor i dammar, bäckar och diken"
+        }
+      },
+      {
+        "id": "water_permanent",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 4.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Biologiskt tillgängliga permanenta vattenytor"
+        }
+      },
+      {
+        "id": "water_temporary",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 2.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Vegetationsytor med tillfälligt kvardröjande vatten"
+        }
+      },
+      {
+        "id": "stormwater_to_ponds",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.2,
+        "groups": [
+          "S",
+          "R"
+        ],
+        "label": {
+          "sv": "Dagvatten förs från hårdgjorda ytor till dammar och fuktstråk"
+        }
+      },
+      {
+        "id": "trees_structural_soil",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 0.8,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Dagvattenhanterande träd i hårdgjord yta (träd i skelettjord)"
+        }
+      },
+      {
+        "id": "water_mirror",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "K"
+        ],
+        "label": {
+          "sv": "Vattenspeglar"
+        }
+      },
+      {
+        "id": "fountains",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "count",
+        "factor": 1.0,
+        "unit_area_m2": 1.0,
+        "groups": [
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Fontäner, cirkulationsanläggning eller liknande"
+        }
+      },
+      {
+        "id": "water_storage_pond",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.5,
+        "groups": [
+          "S",
+          "R",
+          "K"
+        ],
+        "label": {
+          "sv": "Vattensamlingar i damm eller liknande"
+        }
+      },
+      {
+        "id": "rainwater_irrigation",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Uppsamling av regnvatten för bevattning"
+        }
+      },
+      {
+        "id": "stormwater_to_tanks",
+        "section": "water_quality",
+        "kind": "supplementary",
+        "measure": "area",
+        "factor": 0.1,
+        "groups": [
+          "R"
+        ],
+        "label": {
+          "sv": "Dagvatten förs från hårdgjorda ytor till magasin"
+        }
+      }
+    ],
+    "version": "2026",
+    "municipality": "SGBC Miljöbyggnad (hela Sverige)",
+    "source_file": "rulebook_sgbc_miljobyggnad_gyf_2026.yaml"
+  }
+}

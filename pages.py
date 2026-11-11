@@ -8,6 +8,7 @@ import streamlit as st
 from html import escape
 
 from layout import Project
+from manual_proforma import render_manual_proforma
 from visuals import card, check_badge, continue_button, icon, kpi, plan_workspace_html, show_plan, title
 
 SAMPLE_ROWS = [
@@ -57,7 +58,7 @@ def render_project_setup(project: Project) -> None:
                 horizontal=True, key="assessment_method", label_visibility="collapsed")
 
     if "Manual" in method:
-        _render_manual()
+        render_manual_proforma(project)
         return
 
     up, _ = st.columns([1.62, 1])
@@ -90,82 +91,6 @@ def render_project_setup(project: Project) -> None:
         st.markdown('<div class="v-callout">Example only · Layer mapping shown here is illustrative and not derived from an uploaded DXF.</div>', unsafe_allow_html=True)
     with tab_validation:
         st.markdown('<div class="v-callout v-warn">No validation is performed in this UI-only prototype. Future versions will report geometry, overlap, and counting issues here.</div>', unsafe_allow_html=True)
-
-
-
-def _render_manual() -> None:
-    st.markdown(
-        '<div class="v-main-heading v-topspace">Manual GYF Calculation</div>'
-        '<div class="v-main-sub">Enter quantities directly without a DXF drawing. '
-        'This is a visual prototype; calculations are not connected.</div>',
-        unsafe_allow_html=True
-    )
-
-    c1, c2 = st.columns([1.85, 1], gap="large")
-
-    with c1:
-        with st.container(border=True):
-            grp = st.selectbox(
-                "Factor category",
-                [
-                    "Ground and planting",
-                    "Trees and vegetation",
-                    "Water and stormwater",
-                    "Supplementary qualities"
-                ],
-                key="manual_cat"
-            )
-
-            rows = {
-                "Ground and planting": [
-                    "Preserved natural ground (m²)",
-                    "Planting bed ≥800 mm (m²)",
-                    "Sealed surfaces (m²)"
-                ],
-                "Trees and vegetation": [
-                    "Existing trees (pcs)",
-                    "New medium trees (pcs)",
-                    "Shrubs (m²)"
-                ],
-                "Water and stormwater": [
-                    "Water bodies (m²)",
-                    "Rain gardens (m²)"
-                ],
-                "Supplementary qualities": [
-                    "Field diversity (m²)",
-                    "Nest boxes (pcs)"
-                ]
-            }
-
-            for i, n in enumerate(rows[grp]):
-                st.number_input(
-                    n,
-                    min_value=0.0,
-                    step=1.0,
-                    key=f"manu_{grp}_{i}"
-                )
-
-    with c2:
-        st.markdown(
-            '<div class="v-callout">'
-            'Manual quantities will use the selected municipal rulebook '
-            'when the calculation engine is connected.'
-            '</div>',
-            unsafe_allow_html=True
-        )
-
-        st.markdown(
-            '<div class="v-callout v-manual-warning">'
-            'Spatial geometry validation is unavailable in manual-entry mode.'
-            '</div>',
-            unsafe_allow_html=True
-        )
-
-    continue_button(
-        "Continue to Plan & Quantities",
-        "plan",
-        "manual_continue"
-    )
 
 
 

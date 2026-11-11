@@ -375,3 +375,17 @@ p>span[role="img"]{
     margin-bottom: 12px !important;
 }
 
+
+
+/* ===== Manual proforma: clear consistent spacing ===== */
+.v-manual-intro{padding-top:10px;margin-bottom:14px}
+.v-manual-context{border:1px solid #dce9df;background:#f0f8f1;padding:10px 14px;border-radius:8px;margin:8px 0 16px;font-size:14px;color:#24533a}
+.v-factor-section{font-size:16px;font-weight:750;color:#145b39;margin:16px 0 10px;padding:7px 0;border-bottom:1px solid #dce6df}
+.v-factor-title{font-size:15px;font-weight:700;line-height:1.35;color:#18241d}
+.v-factor-sv{font-size:13px;color:#59665e;line-height:1.35;margin-top:3px}
+.v-factor-meta{font-size:12px;color:#3b7150;margin-top:7px;line-height:1.35}
+.v-manual-banner,.v-manual-guidance{width:100%;box-sizing:border-box;border-radius:8px;padding:15px 17px;margin:0 0 14px;font-size:14px;line-height:1.55}
+.v-manual-banner strong,.v-manual-guidance strong{display:block;font-size:15px;margin-bottom:4px}
+.v-manual-info{background:#eaf6ee;color:#1d5a39;border:1px solid #d0e7d7}
+.v-manual-warning{background:#fff7e4;color:#875a09;border:1px solid #f1e2be}
+.v-manual-guidance{background:#f7f9f8;color:#3d5045;border:1px solid #dde5df}
