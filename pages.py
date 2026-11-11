@@ -110,7 +110,12 @@ def _render_manual() -> None:
     with c2:
         st.markdown('<div class="v-callout">Manual quantities will use the selected municipal rulebook when the calculation '
                     'engine is connected.</div>', unsafe_allow_html=True)
-        st.warning("Spatial geometry validation is unavailable in manual-entry mode.")
+       st.markdown(
+    '<div class="v-callout v-manual-warning">'
+    'Spatial geometry validation is unavailable in manual-entry mode.'
+    '</div>',
+    unsafe_allow_html=True
+)
     continue_button("Continue to Plan & Quantities", "plan", "manual_continue")
 
 
