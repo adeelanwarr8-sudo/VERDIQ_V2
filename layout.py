@@ -1,52 +1,118 @@
-"""Standalone UI-only layout. No legacy Verdiq imports or GYF processing."""
+"""Shell layout: header, navigation tabs, project-setup panel and workflow footer.
+
+UI-only. No legacy Verdiq imports or GYF processing.
+"""
 from __future__ import annotations
+
 from dataclasses import dataclass
-from pathlib import Path
 from html import escape
+from pathlib import Path
+
 import streamlit as st
 
-ROOT=Path(__file__).resolve().parent
-MODELS={
- 'Nacka':[('2019-10','Version 2 · 2019-10','Grönytefaktor – Nacka stad, version 2','Nacka kommun')],
- 'Stockholm':[('2021-02-01','2021-02-01','GYF – Grönytefaktor för kvartersmark','Stockholms stad'),('2015-06-17','2015-06-17','GYF – Grönytefaktor för kvartersmark','Stockholms stad')],
- 'Täby':[('2017-04-25','Västra Roslags-Näsby · 2017','Grönytefaktor för Västra Roslags-Näsby','Täby kommun')],
- 'SGBC Miljöbyggnad':[('2026','Miljöbyggnad · 2026','Grönytefaktor inom Miljöbyggnad','Sweden Green Building Council')],
+from visuals import icon
+
+ROOT = Path(__file__).resolve().parent
+
+MODELS = {
+    "Nacka": [("2019-10", "Version 2 - 2019-10", "Grönytefaktor – Nacka stad, version 2", "Nacka kommun")],
+    "Stockholm": [("2021-02-01", "2021-02-01", "GYF – Grönytefaktor för kvartersmark", "Stockholms stad"),
+                  ("2015-06-17", "2015-06-17", "GYF – Grönytefaktor för kvartersmark", "Stockholms stad")],
+    "Täby": [("2017-04-25", "Västra Roslags-Näsby - 2017", "Grönytefaktor för Västra Roslags-Näsby", "Täby kommun")],
+    "SGBC Miljöbyggnad": [("2026", "Miljöbyggnad - 2026", "Grönytefaktor inom Miljöbyggnad", "Sweden Green Building Council")],
 }
-PAGES=[('project','Project Setup','▱'),('plan','Plan & Quantities','▱'),('assessment','GYF Assessment','▥'),('improvements','Design Improvements','♧'),('compare','Compare Designs','◧'),('reports','Reports & Export','▤')]
+
+# (page id, label, Material Symbols icon)
+PAGES = [
+    ("project", "Project Setup", ":material/folder_open:"),
+    ("plan", "Plan & Quantities", ":material/stacks:"),
+    ("assessment", "GYF Assessment", ":material/bar_chart:"),
+    ("improvements", "Design Improvements", ":material/psychiatry:"),
+    ("compare", "Compare Designs", ":material/view_column_2:"),
+    ("reports", "Reports & Export", ":material/description:"),
+]
+
+
 @dataclass(frozen=True)
 class Project:
- name:str;project_type:str;address:str;municipality:str;version:str;model:str;publisher:str;target_override:bool;target:float;plot_area:float
+    name: str
+    project_type: str
+    address: str
+    municipality: str
+    version: str
+    model: str
+    publisher: str
+    target_override: bool
+    target: float
+    plot_area: float
 
-def apply_styles():
- st.markdown('<style>'+ (ROOT/'styles.css').read_text(encoding='utf-8')+'</style>',unsafe_allow_html=True)
 
-def render_header():
- st.markdown('''<div class="v-header"><div class="v-brand"><span class="v-logo">🌿</span><div><div class="v-title">Verdiq Studio</div><div class="v-tagline">Green Infrastructure Design &amp; GYF Assessment</div></div></div><div class="v-top-icons">ⓘ &nbsp; ♙</div></div>''',unsafe_allow_html=True)
+def apply_styles() -> None:
+    st.markdown("<style>" + (ROOT / "styles.css").read_text(encoding="utf-8") + "</style>", unsafe_allow_html=True)
 
-def set_page(page):st.session_state.page=page
 
-def render_navigation():
- cols=st.columns(6,gap='small')
- for col,(ident,label,ic) in zip(cols,PAGES):
-  with col:
-   st.button(f'{ic}  {label}',key=f'nav_{ident}',use_container_width=True,type='primary' if st.session_state.page==ident else 'secondary',on_click=set_page,args=(ident,))
- st.markdown('<div class="v-nav-gap"></div>',unsafe_allow_html=True)
+def render_header() -> None:
+    st.markdown(
+        f'<div class="v-header"><div class="v-brand"><span class="v-logo">{icon("sprout", 34, "#ffffff", 2)}</span>'
+        f'<div><div class="v-title">Verdiq Studio</div><div class="v-tagline">Green Infrastructure Design &amp; GYF Assessment</div></div></div>'
+        f'<div class="v-top-icons">{icon("help", 34, "#ffffff", 1.6)}{icon("user", 34, "#ffffff", 1.6)}</div></div>',
+        unsafe_allow_html=True)
 
-def render_sidebar()->Project:
- st.markdown('<div class="v-panel-title">Project Setup</div><div class="v-panel-sub">Define project parameters and import the site plan.</div>',unsafe_allow_html=True)
- name=st.text_input('Project Name',value='Nacka Demonstration',key='project_name')
- kind=st.selectbox('Project Type',['Residential','Mixed-use','Commercial','School / Preschool','Public space','Other'],key='project_type')
- address=st.text_input('Project Site Address',value='Sickla Allé 12, 131 54 Nacka, Sweden',key='project_address')
- muni=st.selectbox('Municipality',list(MODELS),key='municipality')
- choices=MODELS[muni]
- if st.session_state.get('gyf_version') not in [x[0] for x in choices]:st.session_state['gyf_version']=choices[0][0]
- version=st.selectbox('GYF Version',[x[0] for x in choices],format_func=lambda x:next(a[1] for a in choices if a[0]==x),key='gyf_version')
- selected=next(x for x in choices if x[0]==version)
- st.markdown(f'<div class="v-source"><div class="v-source-head">▣ &nbsp; Model and Source</div><div>{escape(selected[2])}.</div><div><b>Publisher:</b> {escape(selected[3])}.</div><div><b>Version:</b> {escape(selected[0])}.</div></div>',unsafe_allow_html=True)
- override=st.checkbox('Project-specific GYF target',value=True,key='target_override',help="From the city's GYF documentation")
- st.markdown('<div class="v-hint">(from the city’s GYF documentation)</div>',unsafe_allow_html=True)
- target=st.number_input('Target',min_value=0.0,max_value=5.0,value=.60,step=.05,format='%.2f',disabled=not override,key='target')
- area=st.number_input('Plot Area (m²)',min_value=0.,value=15894.40,step=10.,format='%.2f',key='plot_area')
- with st.expander('Municipal requirements & guidance'):
-  st.caption('UI placeholder. Official sources and project requirements will be connected in a later phase.')
- return Project(name,kind,address,muni,version,selected[2],selected[3],override,target,area)
+
+def set_page(page: str) -> None:
+    st.session_state.page = page
+
+
+def render_navigation() -> None:
+    cols = st.columns([1, 0.93, 0.93, 1.03, 0.93, 0.93], gap="small")
+    for col, (ident, label, ic) in zip(cols, PAGES):
+        with col:
+            st.button(label, icon=ic, key=f"nav_{ident}", use_container_width=True,
+                      type="primary" if st.session_state.page == ident else "secondary",
+                      on_click=set_page, args=(ident,))
+
+
+def render_sidebar() -> Project:
+    st.markdown('<div class="v-panel-title">Project Setup</div>'
+                '<div class="v-panel-sub">Define project parameters and import the site plan.</div>', unsafe_allow_html=True)
+    name = st.text_input("Project Name", value="Nacka Demonstration", key="project_name",
+                         help="A name used on reports and exports.")
+    kind = st.selectbox("Project Type", ["Residential", "Mixed-use", "Commercial", "School / Preschool", "Public space", "Other"],
+                        key="project_type", help="Type of development being assessed.")
+    address = st.text_input("Project Site Address", value="Sickla Allé 12, 131 54 Nacka, Sweden", key="project_address",
+                            help="Street address of the site.")
+    muni = st.selectbox("Municipality", list(MODELS), key="municipality",
+                        help="Determines which GYF model and factors apply.")
+    choices = MODELS[muni]
+    if st.session_state.get("gyf_version") not in [x[0] for x in choices]:
+        st.session_state["gyf_version"] = choices[0][0]
+    version = st.selectbox("GYF Version", [x[0] for x in choices],
+                           format_func=lambda x: next(a[1] for a in choices if a[0] == x), key="gyf_version",
+                           help="Published version of the municipal GYF model.")
+    selected = next(x for x in choices if x[0] == version)
+    st.markdown(
+        f'<div class="v-source"><div class="v-source-head">{icon("book", 20, "#1d5a3a", 1.8)}<span>Model and Source</span>'
+        f'<span class="v-source-link">{icon("external", 18, "#1d7a48", 1.8)}</span></div>'
+        f'<div class="v-source-body">{escape(selected[2])}.<br><b>Publisher:</b> {escape(selected[3])}.<br>'
+        f'<b>Version:</b> {escape(selected[0])}.</div></div>', unsafe_allow_html=True)
+    override = st.checkbox("Project-specific GYF target", value=True, key="target_override",
+                           help="Use a target value from the city's GYF documentation for this project.")
+    st.markdown("<div class=\"v-hint\">(from the city’s GYF documentation)</div>", unsafe_allow_html=True)
+    target = st.number_input("Target", min_value=0.0, max_value=5.0, value=0.60, step=0.05, format="%.2f",
+                             disabled=not override, key="target")
+    area = st.number_input("Plot Area (m²)", min_value=0.0, value=15894.40, step=10.0, format="%.2f", key="plot_area",
+                           help="Total plot (kvartersmark) area.")
+    with st.expander("Municipal requirements & guidance", icon=":material/description:"):
+        st.caption("Official sources and project requirements will be connected in a later phase.")
+    return Project(name, kind, address, muni, version, selected[2], selected[3], override, target, area)
+
+
+def render_footer() -> None:
+    current = [p[0] for p in PAGES].index(st.session_state.page)
+    steps = []
+    for i, (_, label, _) in enumerate(PAGES):
+        cls = "on" if i == current else ("done" if i < current else "")
+        steps.append(f'<div class="v-step {cls}"><span class="n">{i + 1}</span><span class="l">{escape(label)}</span></div>')
+    line = '<span class="v-step-line"></span>'
+    st.markdown(f'<div class="v-footer"><div class="v-footer-title">Workflow Progress {icon("info", 18, "#4b5a52", 1.8)}</div>'
+                f'<div class="v-steps">{line.join(steps)}</div></div>', unsafe_allow_html=True)

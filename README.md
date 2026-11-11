@@ -1,20 +1,31 @@
 # VERDIQ_V2 — Reference-Matched UI Prototype
 
-UI-only standalone Streamlit prototype designed against the approved `UI_SAMPLE.jpg` image. All seven files belong **directly in the GitHub repository root**.
+UI-only standalone Streamlit prototype built to match the approved `UI_SAMPLE.jpg`.
+
+## Repository layout
+Put these files **directly in the repository root**:
+
+```
+streamlit_app.py
+layout.py
+pages.py
+visuals.py
+styles.css
+requirements.txt
+README.md
+.streamlit/config.toml     <- inside a folder named .streamlit
+```
+
+`.streamlit/config.toml` sets the green theme and the 50 MB DXF upload limit shown in the UI.
 
 ## Deploy
-1. Upload/replace all seven files in the root of `VERDIQ_V2` (not inside a folder).
-2. Deploy `streamlit_app.py` using Streamlit Community Cloud.
-3. Refresh the application after the commit.
+1. Upload/replace the files above (keep `config.toml` inside `.streamlit/`).
+2. Deploy `streamlit_app.py` on Streamlit Community Cloud.
+3. Reboot the app after the commit so the new config is picked up.
 
-## Contents
-- `streamlit_app.py`: page shell and two-column composition
-- `layout.py`: full-width green header, six tabs, left project-setup panel
-- `pages.py`: six UI-only pages, including DXF/manual method selection
-- `visuals.py`: vector illustration of a sample site plan
-- `styles.css`: enlarged type, proportions, colours and visual components
-- `requirements.txt`: Streamlit dependency
-- `README.md`: instructions
+## Notes
+- Streamlit is pinned to `1.67.0`: the styling targets that version's widget markup. Upgrading may need small CSS adjustments.
+- Designed for a desktop browser around 1600 px wide; narrower screens wrap gracefully.
 
 ## Limitations
-**This is a visual prototype only.** DXF selection does not render the uploaded drawing, layer mapping does not save, example quantities are not computed, and checks, recommendations, and exports are not live. The reference image is an idealized design; some details will differ because Streamlit controls are native browser widgets. No imports or dependencies on VERDIQ V1.
+**This is a visual prototype only.** DXF upload does not render the drawing, the plan, quantities, layer mapping, validation, recommendations and exports are sample content and not computed. No imports or dependencies on VERDIQ V1.
