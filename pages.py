@@ -64,7 +64,7 @@ def render_project_setup(project: Project) -> None:
         render_manual_proforma(project)
         return
 
-    st.markdown("**Upload GYF Marking Plan (DXF)**")
+    st.markdown("**Upload Markeringsplan (DXF)**")
     st.caption(
         "**Preferred:** GYF Markeringsplan. A Landscape / Site Development Plan "
         "(Markplaneringsritning) is also accepted. A Site Plan (Situationsplan) "
