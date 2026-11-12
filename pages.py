@@ -64,9 +64,34 @@ def render_project_setup(project: Project) -> None:
         render_manual_proforma(project)
         return
 
+    st.markdown("**Upload GYF Marking Plan (DXF)**")
+    st.caption(
+        "**Preferred:** GYF Markeringsplan. A Landscape / Site Development Plan "
+        "(Markplaneringsritning) is also accepted. A Site Plan (Situationsplan) "
+        "alone is generally insufficient for a complete GYF assessment."
+    )
+    with st.expander("Which DXF drawing should I upload?"):
+        st.markdown(
+            "**1. GYF Marking Plan (GYF Markeringsplan) — Recommended.** "
+            "Clearly identifies green and blue areas, trees, other GYF features, "
+            "and their classifications.\n\n"
+            "**2. Landscape / Site Development Plan (Markplaneringsritning) — Accepted.** "
+            "Shows planting, surface materials, trees, and drainage; some GYF "
+            "properties and factor assignments may need verification.\n\n"
+            "**3. Site Plan (Situationsplan) — Supporting only.** "
+            "Useful for site boundaries, building footprints, and dimensions, "
+            "but normally lacks the detail needed for a complete GYF assessment."
+        )
+        st.caption(
+            "Upload a native DXF containing measurable CAD entities and clearly named "
+            "layers where possible. Imported images or flattened drawings cannot "
+            "provide reliable geometry-based quantities."
+        )
+
     up, _ = st.columns([1.62, 1])
     with up:
-        st.file_uploader("Upload DXF", type=["dxf"], key="dxf_upload", label_visibility="collapsed")
+        st.file_uploader("Upload GYF Marking Plan (DXF)", type=["dxf"],
+                         key="dxf_upload", label_visibility="collapsed")
 
     drawing_data = None
     uploaded = st.session_state.get("dxf_upload")
