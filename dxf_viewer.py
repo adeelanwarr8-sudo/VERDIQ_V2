@@ -174,6 +174,15 @@ svg{width:100%;height:100%;touch-action:none;cursor:grab;display:block}svg.dragg
 .layer-row{display:flex;align-items:center;gap:9px;padding:5px 0;overflow-wrap:anywhere}.layer-row input{accent-color:#0e7b44;width:17px;height:17px;flex:none}
 .swatch{width:16px;height:4px;border-radius:2px;flex:none}.layer-name{flex:1;min-width:0}.count{color:#718076;font-size:11px}
 .footer{padding:9px 12px;background:#f9fbf9;border-top:1px solid #e0e7e1;display:flex;gap:15px;flex-wrap:wrap;color:#4b5d50;font-size:12px}
+/* Fixed map furniture. These elements do not pan with the CAD geometry. */
+.north-overlay{position:absolute;bottom:17px;left:19px;z-index:2;display:flex;flex-direction:column;align-items:center;gap:2px;pointer-events:none;color:#24392e;text-shadow:0 1px 2px #fff;font-weight:700}
+.north-overlay svg{width:33px;height:39px;cursor:default;touch-action:auto}
+.north-overlay .north-letter{font-size:14px;line-height:16px}
+.scale-overlay{position:absolute;right:21px;bottom:18px;z-index:2;pointer-events:none;color:#24392e;min-width:90px;font-size:12px;font-weight:600;text-shadow:0 1px 2px #fff}
+.scale-labels{display:flex;align-items:end;justify-content:space-between;white-space:nowrap;gap:7px;margin-bottom:4px}
+.scale-rail{height:9px;border-bottom:2px solid #26392d;display:flex;justify-content:space-between;align-items:end}
+.scale-rail i{display:block;width:1px;height:9px;background:#26392d}
+.scale-hint{font-size:10px;color:#5b6e63;text-align:right;margin-top:4px;font-weight:400}
 .empty{display:flex;align-items:center;justify-content:center;height:100%;font-size:14px;color:#65736a}
 </style></head><body><div class="shell">
 <div class="toolbar"><button id="pan" class="active" title="Drag to pan">✋ Pan</button>
@@ -182,6 +191,14 @@ svg{width:100%;height:100%;touch-action:none;cursor:grab;display:block}svg.dragg
 <button id="expand" title="Expand viewer">⤢ Expand</button>
 <button id="layersButton" class="right" title="Toggle CAD layers">▱ Layers ▾</button></div>
 <div class="canvas-wrap" id="area"><svg id="drawing" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-label="DXF drawing workspace"><g id="features" transform="scale(1,-1)"></g></svg>
+<div class="north-overlay" title="Orientation reference: assumes drawing +Y is north">
+<div class="north-letter">N</div>
+<svg viewBox="0 0 36 42" aria-label="North direction assumes CAD positive Y is north" xmlns="http://www.w3.org/2000/svg">
+<circle cx="18" cy="21" r="15" fill="#fff" fill-opacity=".88" stroke="#26392d" stroke-width="1.6"/>
+<path d="M18 5 L26 34 L18 28 L10 34 Z" fill="#fff" stroke="#26392d" stroke-width="1.4" stroke-linejoin="round"/>
+<path d="M18 5 L18 28 L10 34 Z" fill="#26392d"/>
+</svg></div>
+<div class="scale-overlay" id="scaleOverlay" aria-label="Dynamic drawing scale"><div class="scale-labels" id="scaleLabels"><span>0</span><span>—</span></div><div class="scale-rail" id="scaleRail"><i></i><i></i><i></i><i></i></div><div class="scale-hint" id="scaleHint"></div></div>
 <div id="layerPanel" class="layer-panel"><div class="panel-head"><strong>CAD Layers</strong><button id="closeLayers" aria-label="Close layers">×</button></div><div id="layerRows"></div></div></div>
 <div class="footer"><span id="summary">DXF viewer</span><span>Local drawing coordinates · wheel to zoom · drag to pan</span></div>
 </div><script type="application/json" id="dataset">__DATA__</script><script>
@@ -190,7 +207,26 @@ const data=JSON.parse(document.getElementById('dataset').textContent),svg=docume
 const features=document.getElementById('features'), rows=document.getElementById('layerRows'),NS='http://www.w3.org/2000/svg';
 let box={x:0,y:0,w:100,h:100},pointer=null;
 const palette=['#0f7a43','#336cba','#a76c20','#8555a5','#227d84','#ad425e','#555e68','#7e7530'];
-function apply(){svg.setAttribute('viewBox',[box.x,box.y,box.w,box.h].join(' '));}
+const unitInfo=(()=>{const code=Number(data.units_code||0);
+ // DXF $INSUNITS. Values convert CAD units to metres; 0 means unspecified.
+ const metres={1:.0254,2:.3048,4:.001,5:.01,6:1,7:1000,8:0.0000000254,9:.0000254,10:.9144,11:1e-10,12:1e-9,13:.000001,14:.1,15:10,16:100,17:1e9,18:1.495978707e11,19:9.4607304725808e15,20:3.08567758149137e16};
+ return Object.hasOwn(metres,code)?{factor:metres[code],unit:'m',known:true}:{factor:1,unit:'drawing units',known:false};})();
+function niceStep(x){if(!(x>0)||!Number.isFinite(x))return 1;const e=Math.floor(Math.log10(x)),b=Math.pow(10,e),n=x/b;return (n>=5?5:n>=2?2:1)*b;}
+function fmt(x){return Number(x.toPrecision(5)).toLocaleString('en-US',{maximumFractionDigits:5});}
+function updateScale(){const holder=document.getElementById('scaleOverlay'),labels=document.getElementById('scaleLabels'),rail=document.getElementById('scaleRail'),hint=document.getElementById('scaleHint');
+ if(!data.bounds||svg.clientWidth<=0||!(box.w>0)){holder.style.display='none';return;}
+ holder.style.display='block';
+ const metresPerPixel=box.w/svg.clientWidth*unitInfo.factor;
+ const target=150*metresPerPixel;
+ const total=niceStep(target);
+ const pixelWidth=Math.max(45,Math.min(svg.clientWidth*.42,total/metresPerPixel));
+ holder.style.width=pixelWidth+'px';
+ labels.replaceChildren();
+ for(const n of [0,total/4,total/2,total]){const node=document.createElement('span');node.textContent=fmt(n)+(n===total?' '+unitInfo.unit:'');labels.appendChild(node);}
+ rail.replaceChildren();for(let i=0;i<4;i++)rail.appendChild(document.createElement('i'));
+ hint.textContent=unitInfo.known?'':'DXF units unspecified';
+}
+function apply(){svg.setAttribute('viewBox',[box.x,box.y,box.w,box.h].join(' '));updateScale();}
 function fit(){if(!data.bounds)return;const [x0,y0,x1,y1]=data.bounds;
  const w=Math.max(x1-x0,1),h=Math.max(y1-y0,1),r=Math.max(1,svg.clientWidth)/Math.max(1,svg.clientHeight),pad=1.1;
  const newW=Math.max(w,h*r)*pad,newH=newW/r;
@@ -227,7 +263,7 @@ svg.addEventListener('wheel',ev=>{ev.preventDefault();const rect=svg.getBounding
 svg.addEventListener('pointerdown',ev=>{if(ev.button!==0)return;pointer={x:ev.clientX,y:ev.clientY,b:{...box}};svg.setPointerCapture(ev.pointerId);svg.classList.add('dragging');});
 svg.addEventListener('pointermove',ev=>{if(!pointer)return;const r=svg.getBoundingClientRect();box={...pointer.b,x:pointer.b.x-(ev.clientX-pointer.x)*pointer.b.w/r.width,y:pointer.b.y-(ev.clientY-pointer.y)*pointer.b.h/r.height};apply();});
 function end(){pointer=null;svg.classList.remove('dragging');}svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
-window.addEventListener('resize',()=>{if(data.bounds)fit();});
+window.addEventListener('resize',()=>{if(data.bounds){const centerX=box.x+box.w/2,centerY=box.y+box.h/2,ratio=Math.max(1,svg.clientWidth)/Math.max(1,svg.clientHeight);box={x:centerX-box.h*ratio/2,y:centerY-box.h/2,w:box.h*ratio,h:box.h};apply();}});
 })();
 </script></body></html>'''
     components.html(template.replace('__DATA__', payload), height=height, scrolling=False)
