@@ -72,7 +72,7 @@ def render_project_setup(project: Project) -> None:
     )
     with st.expander("Which DXF drawing should I upload?"):
         st.markdown(
-            "**1. GYF Marking Plan (GYF Markeringsplan) — Recommended.** "
+            "**1. GYF Markeringsplan (GYF Markeringsplan) — Recommended.** "
             "Clearly identifies green and blue areas, trees, other GYF features, "
             "and their classifications.\n\n"
             "**2. Landscape / Site Development Plan (Markplaneringsritning) — Accepted.** "
@@ -90,7 +90,7 @@ def render_project_setup(project: Project) -> None:
 
     up, _ = st.columns([1.62, 1])
     with up:
-        st.file_uploader("Upload GYF Marking Plan (DXF)", type=["dxf"],
+        st.file_uploader("Upload GYF Markeringsplan (DXF)", type=["dxf"],
                          key="dxf_upload", label_visibility="collapsed")
 
     drawing_data = None
