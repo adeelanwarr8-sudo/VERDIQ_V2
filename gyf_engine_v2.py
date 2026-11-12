@@ -17,6 +17,8 @@ import ezdxf
 
 from verdiq_loader import parse_rulebook, sha256
 from verdiq_dxf import auto_mapping, read_layers, plot_geometry, quantities, INSUNITS_TO_M
+from verdiq_spatial import check_plan
+from dxf_quality_v2 import audit_entities
 
 ROOT = Path(__file__).resolve().parent
 RULEBOOK_FILES = {
@@ -46,6 +48,7 @@ class Extraction:
     evidence: list[dict]
     findings: list[Finding] = field(default_factory=list)
     plot_area_m2: float | None = None
+    object_evidence: list[dict] = field(default_factory=list)
 
 
 def load_selected(municipality: str, version: str):
@@ -132,6 +135,13 @@ def inspect_dxf(blob: bytes, municipality: str, version: str, *,
         for layer,s in stats.items():
             if len(s.points)!=len(set(s.points)):
                 findings.append(Finding('warning','DUPLICATE_SYMBOL',f"Layer '{layer}' contains repeated symbol coordinates; check duplicate tree counts."))
+        # Audit raw objects and spatial relations without modifying source geometry.
+        object_evidence, audit_issues, _counts = audit_entities(path, factor, chosen)
+        for severity, code_name, message in audit_issues:
+            findings.append(Finding(severity, code_name, message))
+        if chosen:
+            for issue in check_plan(rb, stats, chosen, plot=plot):
+                findings.append(Finding(issue.severity, issue.code.upper(), issue.text))
         q=quantities(rb,stats,chosen,plot=plot) if chosen else {}
         evidence=[]
         for layer,fid in chosen.items():
@@ -146,7 +156,7 @@ def inspect_dxf(blob: bytes, municipality: str, version: str, *,
             for fid in list(q):
                 if rb.factor(fid).measure=='length':q.pop(fid)
         return Extraction(rb.meta.id,version,rule_sha,hashlib.sha256(blob).hexdigest()[:16],factor,code,
-                          layers,suggested,q,evidence,findings, round(plot.area,3) if plot is not None else None)
+                          layers,suggested,q,evidence,findings, round(plot.area,3) if plot is not None else None, object_evidence)
     finally:
         path.unlink(missing_ok=True)
 

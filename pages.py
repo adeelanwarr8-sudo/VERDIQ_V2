@@ -89,7 +89,7 @@ def render_project_setup(project: Project) -> None:
                     st.metric("CAD layers", len(drawing_data["layers"]))
                     st.metric("Modelspace entities", drawing_data["entity_count"])
                     st.metric("Rendered primitives", drawing_data["shape_count"])
-                    st.caption("Preview only. Geometry inspection, factor mapping and GYF quantity extraction belong to later increments.")
+                    st.caption("Interactive drawing preview. Review extracted quantities and geometry checks in the Layer Mapping and Drawing Validation tabs.")
                     if drawing_data["truncated"]:
                         st.warning("Preview truncated at 25,000 primitives. The full DXF has not been rendered.")
                     if drawing_data["skipped"]:
@@ -134,9 +134,11 @@ def render_project_setup(project: Project) -> None:
                         if st.button("Extract provisional GYF quantities", key="extract_gyf_review"):
                             result=inspect_dxf(uploaded.getvalue(),project.municipality,project.version,
                                                units_to_m=conversion,mapping=mapped)
+                            result.review_mapping = dict(mapped)
+                            result.selection = (project.municipality, project.version)
                             st.session_state["gyf_dxf_result"]=result
                         result=st.session_state.get("gyf_dxf_result")
-                        if result and result.drawing_sha==preview.drawing_sha and result.version==project.version and result.rulebook_id==rb.meta.id:
+                        if result and result.drawing_sha==preview.drawing_sha and result.version==project.version and result.rulebook_id==rb.meta.id and result.units_to_m == (conversion if conversion is not None else preview.units_to_m) and getattr(result, 'review_mapping', mapped) == mapped:
                             st.markdown("#### Provisional extracted quantities")
                             if result.quantities:
                                 st.dataframe([{"Factor ID":fid,"Quantity":v,
@@ -151,8 +153,10 @@ def render_project_setup(project: Project) -> None:
         result=st.session_state.get("gyf_dxf_result")
         if result is None or uploaded is None:
             st.info("Upload a DXF and run provisional extraction to see rulebook and geometry findings.")
-        elif result.drawing_sha != __import__('hashlib').sha256(uploaded.getvalue()).hexdigest()[:16] or result.version!=project.version:
-            st.info("DXF or rulebook selection changed. Run extraction again.")
+        elif (result.drawing_sha != __import__('hashlib').sha256(uploaded.getvalue()).hexdigest()[:16]
+              or result.version != project.version
+              or (project.municipality, project.version) != getattr(result, 'selection', (project.municipality, result.version))):
+            st.info("DXF or municipality selection changed. Run extraction again.")
         else:
             st.caption(f"DXF SHA: {result.drawing_sha} · rulebook SHA: {result.rulebook_sha} "
                        f"· unit conversion: {result.units_to_m}")
@@ -162,8 +166,13 @@ def render_project_setup(project: Project) -> None:
             else:
                 st.info("No preliminary flags. Advanced spatial validation is not yet complete.")
             if result.evidence:
+                st.markdown("#### Factor-level extraction evidence")
                 st.dataframe(result.evidence,hide_index=True,use_container_width=True)
-            st.caption("This is preliminary geometry screening, not municipal compliance certification.")
+            if result.object_evidence:
+                with st.expander(f"Object-level DXF audit ({len(result.object_evidence)} records)"):
+                    st.caption("Raw measurements before polygon union, plot clipping, and municipal eligibility validation. CAD handles allow source tracing.")
+                    st.dataframe(result.object_evidence, hide_index=True, use_container_width=True)
+            st.caption("Spatial and object-level screening only. Geometry flags require human review; no municipal compliance certification or automatic repair is performed.")
 
 
 
