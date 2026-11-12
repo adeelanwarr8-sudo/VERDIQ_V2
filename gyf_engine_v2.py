@@ -54,7 +54,16 @@ def load_selected(municipality: str, version: str):
     if name is None:
         raise ValueError(f"No executable municipal rulebook bundled for {municipality} {version}. "
                          "A display-only catalogue is not a validated rulebook.")
-    raw = (ROOT / "rulebooks" / name).read_text(encoding="utf-8")
+    # Support both the current GitHub repository layout (YAML files in root)
+    # and a future organized rulebooks/ directory.
+    candidates = (ROOT / "rulebooks" / name, ROOT / name)
+    source = next((candidate for candidate in candidates if candidate.is_file()), None)
+    if source is None:
+        raise ValueError(
+            f"Municipal rulebook file '{name}' is missing. "
+            "Add it to the repository root or the rulebooks/ folder."
+        )
+    raw = source.read_text(encoding="utf-8")
     rb = parse_rulebook(raw)
     if rb.meta.version != version:
         raise ValueError("Rulebook version mismatch")
