@@ -1,34 +1,34 @@
-# VERDIQ_V2 — Reference-Matched UI Prototype
+# VERDIQ_V2 — Municipal GYF Intelligence Foundation (Increment 2A)
 
-UI-only standalone Streamlit prototype built to match the approved `UI_SAMPLE.jpg`.
+This **incremental** package builds upon the deployed DXF Viewer Increment 1 and retains the previously approved Streamlit UI, manual proforma and styling.
 
-## Repository layout
-Put these files **directly in the repository root**:
+## New capabilities
+- Structured, version-pinned YAML rulebooks for Stockholm 2021/2015, Nacka 2019 and SGBC 2026.
+- Schema validation with SHA fingerprints and declared source status.
+- CAD layer-to-factor suggestions and manual correction in the **Layer mapping** tab.
+- DXF-derived **provisional** factor quantities, with a geometry evidence table.
+- Explicit handling of unknown `$INSUNITS`: blocked until units are selected.
+- Basic flags for unmapped CAD layers, duplicate symbol coordinates, missing plot boundary and unverified balancing.
+- Legacy geometry extraction and calculator retained as reusable modules. No automatic compliance scoring is enabled.
 
-```
-streamlit_app.py
-layout.py
-pages.py
-visuals.py
-styles.css
-requirements.txt
-README.md
-.streamlit/config.toml     <- inside a folder named .streamlit
-```
+## Important limitations
+- The old rulebook's `meta.status: verified` means its YAML *claims* verification; no independent verification against official city templates has been performed in this increment.
+- Geometry extraction still uses legacy semantics; **not yet validated** for nested blocks, severe topology defects or all HATCH variants. The viewer and extractor may support different entity classes.
+- Tree symbols can be ambiguous; repeated symbols and overlapping features must be reviewed manually.
+- Line-length measurements are not ready; factors measured in length are blocked from extracting accidental polygon area.
+- Stockholm 2021 balancing is marked *unverified* in the bundled rulebook.
+- No rulebook for Täby exists in the old code archive. Täby is not silently substituted with another scheme.
+- **Manual proforma currently remains separate** from extracted provisional quantities pending reconciliation, user confirmation and validation.
+- SpecialGYF is handled by the existing manual workflow; no numerical compliance calculation for SpecialGYF is attempted.
+- Unmapped geometry, eligibility conditions, and site constraints require expert review.
 
-`.streamlit/config.toml` sets the green theme and the 50 MB DXF upload limit shown in the UI.
+## Repository installation
+Upload all files under the ZIP root (keep `.streamlit/config.toml` intact). If your repo already has the DXF Viewer Increment 1, only **`pages.py`, `requirements.txt`, `gyf_engine_v2.py`, the five `verdiq_*.py` engine files, and four YAML files in `rulebooks/`** are new or changed. The rest are identical.
 
-## Deploy
-1. Upload/replace the files above (keep `config.toml` inside `.streamlit/`).
-2. Deploy `streamlit_app.py` on Streamlit Community Cloud.
-3. Reboot the app after the commit so the new config is picked up.
+## Test
+`python -m unittest discover -s tests -v`
 
-## Notes
-- Streamlit is pinned to `1.67.0`: the styling targets that version's widget markup. Upgrading may need small CSS adjustments.
-- Designed for a desktop browser around 1600 px wide; narrower screens wrap gracefully.
+A full live Streamlit browser interaction test has not been run. Existing styling is retained.
 
-## Limitations
-**This is a visual prototype only.** DXF upload does not render the drawing, the plan, quantities, layer mapping, validation, recommendations and exports are sample content and not computed. No imports or dependencies on VERDIQ V1.
-
-## Sidebar refinement
-Project name and site address start blank with input prompts; the project-description line wraps inside the sidebar. All calculations and DXF processing remain disconnected.
+## Next increments
+Complete topology validation and object-level lineage; unify the DXF and manual quantity records; verify each municipal workbook, formulas, balancing and SpecialGYF pathways before enabling compliance scores.
