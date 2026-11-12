@@ -6,6 +6,9 @@ from __future__ import annotations
 
 import streamlit as st
 from html import escape
+import hashlib
+
+from quantity_reconciliation_v2 import (quantity_context, reconcile, can_confirm, confirmed_snapshot)
 
 from layout import Project
 from dxf_viewer import parse_dxf, render_dxf_viewer
@@ -177,21 +180,121 @@ def render_project_setup(project: Project) -> None:
 
 
 def render_plan_quantities(project: Project) -> None:
-    title("Plan & Quantities", "Review the drawing, organize factor groups, and inspect quantities in a future connected version.")
-    st.markdown('<div class="v-callout v-warn">UI preview only · The values on this page are sample data and not taken from your DXF upload or manual entries.</div>', unsafe_allow_html=True)
-    st.write("")
-    left, right = st.columns([1.4, 1], gap="large")
-    with left:
-        st.markdown("#### Plan workspace")
-        show_plan()
-        st.caption("Placeholder plan · import, zoom, selection, and layer filtering will be connected later.")
-    with right:
-        st.markdown("#### Quantity inspector")
-        group = st.selectbox("Factor group", ["All factors", "Planting", "Trees", "Hard surfaces", "Water", "Additional qualities"], key="quantity_group")
-        st.dataframe(SAMPLE_ROWS, use_container_width=True, hide_index=True)
-        st.markdown("#### Geometry checks")
-        st.warning("No geometry checks have been performed. Validation appears here once DXF processing is integrated.")
-        st.button("Edit quantities (coming later)", use_container_width=True, disabled=True)
+    """Unified review of manual and DXF quantities; no municipal score is computed."""
+    title("Plan & Quantities", "Review extracted and manually entered factor quantities. Select one source per factor before confirming.")
+    model_key = f"{project.municipality}|{project.version}"
+    from manual_proforma import CATALOG
+    catalogue = CATALOG.get(model_key)
+    if not catalogue:
+        st.warning("No factor catalogue is available for the selected municipality/version.")
+        return
+    factors = catalogue["factors"]
+    manual_store = st.session_state.get("manual_quantities", {})
+    manual = {f["id"]: manual_store.get(f"{model_key}|{f['id']}", 0) for f in factors}
+
+    extraction = st.session_state.get("gyf_dxf_result")
+    upload = st.session_state.get("dxf_upload")
+    dxf = {}
+    matching = False
+    if extraction:
+        # Streamlit removes the file-uploader widget state when the user navigates
+        # to a different page. Keep the already-extracted in-session snapshot.
+        matching = (getattr(extraction, "selection", None) == (project.municipality, project.version)
+                    and (upload is None or getattr(extraction, "drawing_sha", None)
+                         == hashlib.sha256(upload.getvalue()).hexdigest()[:16]))
+        if matching:
+            dxf = extraction.quantities
+    if extraction and not matching:
+        st.warning("A prior DXF extraction does not match this drawing or municipality/version. It has not been included.")
+    if matching and upload is None:
+        st.caption("Using the last extracted DXF snapshot from this session (the upload control is on Project Setup).")
+    try:
+        rb, rb_sha = load_selected(project.municipality, project.version)
+    except ValueError:
+        rb_sha = None
+    # Bind final review to the exact extraction provenance and mapping, when available.
+    context = quantity_context(project.municipality, project.version,
+                               extraction.drawing_sha if matching else None,
+                               extraction.rulebook_sha if matching else rb_sha,
+                               getattr(extraction, "review_mapping", {}) if matching else {},
+                               extraction.units_to_m if matching else None)
+    existing = st.session_state.get("v2_quantity_ledger")
+    if not existing or existing.get("context") != context:
+        st.session_state["v2_quantity_ledger"] = {"context": context, "choices": {}, "overrides": {}}
+        st.session_state.pop("v2_quantity_confirmation", None)
+    ledger = st.session_state["v2_quantity_ledger"]
+
+    st.caption(f"{project.municipality} · {project.version} · {len(factors)} municipal factor fields"
+               + (" · Matching DXF extraction available" if matching else " · No matching DXF extraction"))
+    st.markdown('<div class="v-callout v-warn">Quantities are for user review only. No municipal eligibility, geometry approval, GYF score, or compliance result is issued here.</div>', unsafe_allow_html=True)
+    group_names = list(dict.fromkeys(str(f.get("section", "")) for f in factors))
+    group = st.selectbox("Factor group", ["Factors with quantities", "All factors"] + group_names,
+                         key="v2_review_group")
+    choices = ledger["choices"]
+    overrides = ledger["overrides"]
+    baseline = reconcile(factors, manual, dxf, choices=choices, overrides=overrides)
+    visible = ([r for r in baseline if r.has_dxf or r.has_manual or r.source == "Override"]
+               if group == "Factors with quantities" else baseline if group == "All factors"
+               else [r for r in baseline if r.section == group])
+    st.caption(f"Showing {len(visible)} factors. Source choices replace other sources; they never add them together.")
+
+    for row in visible:
+        row_id = row.factor_id
+        with st.container(border=True):
+            header, measured, manual_col = st.columns([2.7, 1, 1], vertical_alignment="center", gap="small")
+            with header:
+                st.markdown(f"**{escape(row.label)}**")
+                st.caption(f"{row_id} · {row.measure} · {row.section}")
+            with measured:
+                st.caption("DXF extracted")
+                st.markdown(f"**{row.dxf:,.2f}**" if row.measure != "count" else f"**{row.dxf:,.0f}**")
+            with manual_col:
+                st.caption("Manual input")
+                st.markdown(f"**{row.manual:,.2f}**" if row.measure != "count" else f"**{row.manual:,.0f}**")
+            select_col, input_col = st.columns([1.3, 1], gap="medium")
+            with select_col:
+                allowed = ["Unresolved", "DXF", "Manual", "Override", "Exclude"]
+                selected = st.selectbox("Quantity source", allowed, index=allowed.index(row.source),
+                                        key=f"v2_source_{context}_{row_id}")
+                choices[row_id] = selected
+            with input_col:
+                if selected == "Override":
+                    is_count = row.measure == "count"
+                    val = st.number_input("Override quantity (pcs)" if is_count else "Override quantity (m²)",
+                                          min_value=0 if is_count else 0.0,
+                                          value=int(overrides.get(row_id, 0)) if is_count else float(overrides.get(row_id, 0)),
+                                          step=1 if is_count else 1.0,
+                                          key=f"v2_override_{context}_{row_id}")
+                    overrides[row_id] = val
+                elif selected == "Unresolved":
+                    st.warning("Choose one source")
+                else:
+                    st.caption("Final quantity uses the selected source only.")
+    rows = reconcile(factors, manual, dxf, choices=choices, overrides=overrides)
+    current = [r for r in rows if r.final is not None and r.final > 0]
+    st.markdown("#### Quantity reconciliation summary")
+    st.dataframe([{"Factor": r.label, "Source": r.source, "Final quantity": r.final,
+                   "Measure": r.measure, "Review status": r.status} for r in current],
+                 hide_index=True, use_container_width=True)
+    blocking = bool(matching and any(f.severity == "error" for f in extraction.findings)
+                    and any(r.source == "DXF" and r.dxf > 0 for r in rows))
+    allowed, reasons = can_confirm(rows, blocking_findings=blocking)
+    for reason in reasons:
+        st.warning(reason)
+    if st.button("Confirm reviewed factor quantities", type="primary", disabled=not allowed,
+                 key="v2_confirm_quantities"):
+        st.session_state["v2_quantity_confirmation"] = confirmed_snapshot(rows, context=context)
+        st.success("Quantity selections confirmed for this session. Municipal eligibility remains unverified.")
+    confirmation = st.session_state.get("v2_quantity_confirmation")
+    if confirmation and confirmation.get("context") == context:
+        # Do not present stale confirmation if inputs have been edited after confirming.
+        candidate = confirmed_snapshot(rows, context=context)
+        if candidate["evidence"] == confirmation["evidence"]:
+            st.info("Reviewed quantities are confirmed for this session. They have NOT been approved for GYF scoring.")
+        else:
+            st.session_state.pop("v2_quantity_confirmation", None)
+            st.warning("Quantity values or source selections changed; confirm the revised quantities again.")
+    st.caption("Entered quantities are session-only; no database persistence or audit export is implemented yet.")
     continue_button("Continue to GYF Assessment", "assessment", "continue_quantities")
 
 
